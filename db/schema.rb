@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_145152) do
+ActiveRecord::Schema.define(version: 2020_11_16_164806) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
     t.boolean "confirmed"
-    t.integer "user_id", null: false
-    t.integer "listing_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "listing_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["listing_id"], name: "index_bookings_on_listing_id"
@@ -30,17 +33,18 @@ ActiveRecord::Schema.define(version: 2020_11_16_145152) do
     t.string "gender"
     t.string "description"
     t.integer "price_per_night"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "size"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string "content"
     t.integer "rating"
-    t.integer "user_id", null: false
-    t.integer "listing_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "listing_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["listing_id"], name: "index_reviews_on_listing_id"
