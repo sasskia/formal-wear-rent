@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  category: MyString
+  gender: MyString
+  description: MyString
+  price_per_night: 
+  user: one
+
+two:
+  name: MyString
+  category: MyString
+  gender: MyString
+  description: MyString
+  price_per_night: 
+  user: two
