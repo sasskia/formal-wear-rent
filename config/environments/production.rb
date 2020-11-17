@@ -61,6 +61,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "formal_wear_rent_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: 'https://formal-wear-rent.herokuapp.com/' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
