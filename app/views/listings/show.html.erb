@@ -1,21 +1,46 @@
-<div class="container mt-5">
+<div class="container">
 
-<h2><%= @listing.name %></h2>
-<p> Size: <%= @listing.size%></p>
-<p> Description: <%= @listing.description%></p>
-<p> Price per night: € <%= @listing.price_per_night%></p>
-
-<%= link_to edit_listing_path(@listing) do %>
-<p><i class="fas fa-pen"></i> Edit</p>
-<% end %>
-
-
-<h2>Lender details:</h2>
-<p><%= @listing.user.first_name%> <%=@listing.user.last_name %></p>
-<p>University: <%= @listing.user.university %></p>
+  <div class="listing-container">
+    <div class="primary-image">
+      <%= image_tag "wtlisting", alt: "user_pic" %>
+    </div>
+    <div class="listing-info">
+      <div class="listing-box">
+        <h2><%= @listing.name %></h2>
+        <h3><%= @listing.description%></h3>
+        <p> Size: <%= @listing.size%></p>
+        <p> Price per night: € <%= @listing.price_per_night%></p>
 
 
-<h2>Reviews:</h2>
+        <%= link_to edit_listing_path(@listing) do %>
+        <p><i class="fas fa-pen"></i> Edit</p>
+        <% end %>
+
+        <br>
+
+        <h3 style="font-weight: bold; text-align: center;">Lender details:</h3>
+        <div class="lender-info">
+          <div class="lender-text">
+            <p>Name: <%=@listing.user.first_name%> <%=@listing.user.last_name %></p>
+            <p>University: <%= @listing.user.university %></p>
+          </div>
+
+          <div class="lender-image">
+            <%= image_tag "brian", class: "avatar" %>
+          </div>
+        </div>
+      </div>
+    
+      <div class="listing-button">
+          <%= link_to 'Make a booking', listing_path(@listing.id), class: "btn btn-success"  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-container">
+    <h2>Reviews:</h2>
+  </div>
+
 <% if current_user.nil? %>
 <%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
 <% else %>
