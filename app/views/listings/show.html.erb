@@ -11,9 +11,10 @@
         <p> Size: <%= @listing.size%></p>
         <p> Price per night: € <%= @listing.price_per_night%></p>
 
-
+        <% if !current_user.nil? %>
         <%= link_to edit_listing_path(@listing) do %>
         <p><i class="fas fa-pen"></i> Edit</p>
+        <% end %>
         <% end %>
 
         <br>
@@ -30,7 +31,7 @@
           </div>
         </div>
       </div>
-    
+
       <div class="listing-button">
           <%= link_to 'Make a booking', listing_path(@listing.id), class: "btn btn-success"  %>
       </div>
