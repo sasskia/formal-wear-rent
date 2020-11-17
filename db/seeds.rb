@@ -24,5 +24,7 @@ item4 = Listing.create(name: 'Black tie', category: 'Black tie', gender: 'men', 
 item5 = Listing.create(name: 'Red suit', category: 'Tuxedo', gender: 'men', description: 'Super stylish and modern suit.', size: 'S', price_per_night: 30, user_id: user2.id)
 
 puts "Creating bookings"
-booking1 = Booking.create(user_id: user4.id, listing_id: item2.id, start_date: Time.now, end_date: Time.now + 60000)
-booking2 = Booking.create(user_id: user4.id, listing_id: item4.id, start_date: Time.now, end_date: Time.now + 60000)
+booking1 = Booking.create(user_id: user4.id, listing_id: item2.id, start_date: Time.now, end_date: Time.now + 60000, confirmed: true)
+booking2 = Booking.create(user_id: user4.id, listing_id: item4.id, start_date: Time.now, end_date: Time.now + 30000)
+booking3 = Booking.create(user_id: user4.id, listing_id: item1.id, start_date: Time.now, end_date: Time.now + 120000, confirmed: false)
+booking4 = Booking.create(user_id: user4.id, listing_id: item3.id, start_date: Time.now, end_date: Time.now + 60000)
