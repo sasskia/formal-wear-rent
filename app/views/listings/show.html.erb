@@ -1,0 +1,17 @@
+<div class="container mt-5">
+
+<h2><%= @listing.name %></h2>
+<p> Size: <%= @listing.size%></p>
+<p> Description: <%= @listing.description%></p>
+<p> Price per night: € <%= @listing.price_per_night%></p>
+
+
+<h2>Lender details:</h2>
+<p><%= @listing.user.first_name%> <%=@listing.user.last_name %></p>
+<p>University: <%= @listing.user.university %></p>
+
+
+<h2>Reviews:</h2>
+
+<%= link_to "Back", listings_path(), class: "btn btn-primary" %>
+</div>
