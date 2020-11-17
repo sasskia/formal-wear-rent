@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :listings
   has_many :bookings
   has_many :reviews
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :university, presence: true
+  # validates :first_name, presence: true
+  # validates :last_name, presence: true
+  # validates :university, presence: true
 end
