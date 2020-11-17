@@ -1,7 +1,11 @@
+<div class="container mt-5">
 <h1>Listings</h1>
 
 <ul>
   <% @listings.each do |listing| %>
-      <li><%= listing.name %>, <%= listing.category %></li>
+    <%= link_to listing_path(listing.id) do%>
+      <li><%= listing.name %>, <%= listing.category %> ,  € <%=listing.price_per_night%></li>
+    <% end %>
   <% end %>
 </ul>
+</div>
