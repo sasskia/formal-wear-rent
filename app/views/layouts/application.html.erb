@@ -14,9 +14,8 @@
   </head>
 
   <body>
+    <%= render 'shared/flashes' %>
     <%= render "shared/navbar" %>
-    <p class="notice mb-0"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= render "shared/navbar" %>
     <%= yield %>
     <%= render "shared/footer" %>
