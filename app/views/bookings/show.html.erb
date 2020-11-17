@@ -10,8 +10,7 @@
   <% end %>
   <p><strong>Total price: € <%= @total_price %></strong></p>
   <h2>Lender info</h2>
-  <p></p>
-<!--   name
-  email
-  uni -->
+  <p><%= @booking.listing.user.first_name %> <%= @booking.listing.user.last_name %></p>
+  <p>Email: <%= @booking.listing.user.email %></p>
+  <p>University: <%= @booking.listing.user.university %></p>
 </div>
