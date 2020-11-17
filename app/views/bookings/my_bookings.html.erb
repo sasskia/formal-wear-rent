@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <h1>My Bookings</h1>
+
+  <h2>Upcoming Bookings</h2>
+  <ul>
+    <% @bookings.each do |booking| %>
+        <% if booking.confirmed == true %>
+        <%=link_to booking_path(booking.id) do %>
+          <li>
+            <%= booking.listing.name %>, <%= booking.listing.category %>
+            From <%= booking.start_date %> to <%= booking.end_date %>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+
+  <h2>Pending Bookings</h2>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <% if booking.confirmed == nil %>
+        <%=link_to booking_path(booking.id) do %>
+          <li>
+            <%= booking.listing.name %>, <%= booking.listing.category %>
+            From <%= booking.start_date %> to <%= booking.end_date %>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+
+  <h2>Declined Bookings</h2>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <% if booking.confirmed == false %>
+        <%=link_to booking_path(booking.id) do %>
+          <li>
+            <%= booking.listing.name %>, <%= booking.listing.category %>
+            From <%= booking.start_date %> to <%= booking.end_date %>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
