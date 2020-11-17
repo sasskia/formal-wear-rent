@@ -1,0 +1,124 @@
+.index-container {
+  margin: 70px 190px;
+  height: 90vh;
+}
+
+.listings-container {
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  a{
+    text-decoration: none;
+  }
+}
+
+
+.item {
+  position: absolute;
+  border-radius: 8px;
+  height: 450px;
+  width: 400px;
+  margin: auto;
+  background-image: url(https://images.pexels.com/photos/38270/son-in-law-cufflinks-black-and-white-bow-tie-38270.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 80px -10px black;
+  overflow: hidden;
+}
+
+.item-blur {
+  position: absolute;
+  height: 100%;
+  width: calc(100% + 1px);
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.15s ease-in;
+}
+
+.item:hover .item-blur {
+  opacity: 0.6;
+}
+
+.item-footer {
+  z-index: 1;
+  position: absolute;
+  height: 80px;
+  width: 100%;
+  bottom: 0;
+}
+
+svg#curve {
+  position: absolute;
+  fill: white;
+  left: 0;
+  bottom: 0;
+  width: 400px;
+  height: 450px;
+}
+
+.connections {
+  height: 80px;
+  width: 400px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100px;
+  margin: auto;
+}
+
+.connection {
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  background-color: white;
+  display: inline-block;
+  padding: 5px;
+  margin-right: 25px;
+  transform: translateY(200px);
+  
+  transition: transform 1s cubic-bezier(.46, 1.48, .18, .81);
+}
+
+.item:hover .connection {
+  transform: translateY(0px);
+}
+
+
+
+.info {
+font-family: Inconsolata;
+  padding-left: 20px;
+  transform: translateY(250px);
+
+  transition: transform 0.2s cubic-bezier(.31,1.21,.64,1.02);
+}
+
+.item:hover .info {
+  transform: translateY(0px);
+}
+
+.item-title {
+  font-weight: bolder;
+  padding-top: 5px;
+}
+
+.item-info {
+  margin-top: 10px;
+}
+
+.item-price {
+  width: 176px;
+  margin: 0 auto;
+  text-align: center;
+  
+  p{
+    padding: 7px;
+    background-color: #E9E9E9;
+    border-radius: 0 0 15px 15px;
+    font-size: 21px;
+    color: black;
+  }
+}
