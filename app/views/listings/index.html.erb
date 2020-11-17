@@ -5,44 +5,22 @@
     <div class="listings-container">
     
       <% @listings.each do |listing| %>
-        <%= link_to listing_path(listing.id) do%>
-          <div id="curve" class="item">
-            <div class="item-footer">
-                <div class="connections">
-                    <div class="connection"><div class="icon"></div></div>
-                    <div class="connection"><div class="icon"></div></div>
-                    <div class="connection"><div class="icon"></div></div>
-                </div>
-                <svg id="curve">
-                    <path id="p" d="M0,200 Q80,100 400,200 V150 H0 V50" transform="translate(0 300)" />
-                    <rect id="dummyRect" x="0" y="0" height="450" width="400"
-              fill="transparent" />
-                    <!-- slide up-->
-                    <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,100 400,50 V150 H0 V50" fill="freeze" begin="dummyRect.mouseover" end="dummyRect.mouseout" dur="0.1s" id="bounce1" />
-                    <!-- slide up and curve in -->
-                    <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,0 400,50 V150 H0 V50" fill="freeze" begin="bounce1.end" end="dummyRect.mouseout" dur="0.15s" id="bounce2" />
-                    <!-- slide down and curve in -->
-                    <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,80 400,50 V150 H0 V50" fill="freeze" begin="bounce2.end" end="dummyRect.mouseout" dur="0.15s" id="bounce3" />
-                    <!-- slide down and curve out -->
-                    <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,45 400,50 V150 H0 V50" fill="freeze" begin="bounce3.end" end="dummyRect.mouseout" dur="0.1s" id="bounce4" />
-                    <!-- curve in -->
-                    <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,50 400,50 V150 H0 V50" fill="freeze" begin="bounce4.end" end="dummyRect.mouseout" dur="0.05s" id="bounce5" />
+        <div class="card_price-container">
+          <p  class=card-index-price> $ <%= listing.price_per_night %> per night</p>
+          <%= link_to listing_path(listing.id) do%>
+            <div class="card-index">
+              <div class="content">
+                <h2 class="title"><%= listing.name %></h2>
+                <p class="card-index-info"><%= listing.description %></p>
+                <p class="card-index-info"><%= listing.category %></p>
+              </div>
+            </div>
+        </div>
 
-                    <animate xlink:href="#p" attributeName="d" to="M0,200 Q80,100 400,200 V150 H0 V50" fill="freeze" begin="dummyRect.mouseout" dur="0.15s" id="bounceOut" />
-                </svg>
-                <div class="info">
-                    <div class="item-title"><%= listing.name %></div>
-                    <div class="item-info"><%= listing.category %></div>
-                </div>
-            </div>
-            <div class="item-blur"></div>
-            <div class="item-price">
-              <p>€ <%=listing.price_per_night%></p>
-            </div>
-          </div>
 
         <% end %>
       <% end %>
 
     </div>
   </div>
+
