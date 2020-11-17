@@ -1,0 +1,15 @@
+.gender-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 45px;
+  margin-bottom: 15px;
+  background-color: grey;
+  border-radius: 80px;
+}
+
+.gender-text > p {
+  padding: 0;
+  margin: 0;
+}
