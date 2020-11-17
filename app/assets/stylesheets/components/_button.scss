@@ -4,9 +4,12 @@
   align-items: center;
   width: 400px;
   height: 45px;
-  margin-bottom: 15px;
   background-color: grey;
   border-radius: 80px;
+}
+
+.gender-button:hover{
+  opacity: 0.7;
 }
 
 .gender-text > p {
