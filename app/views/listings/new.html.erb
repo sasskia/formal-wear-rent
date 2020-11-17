@@ -1,0 +1,13 @@
+<div class="container mt-5">
+  <h1>Add a listing</h1>
+
+  <%= simple_form_for @listing do |f| %>
+    <%= f.input :name %>
+    <%= f.input :price_per_night %>
+    <%= f.input :gender %>
+    <%= f.input :category %>
+    <%= f.input :size %>
+    <%= f.input :description, as: :text %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
