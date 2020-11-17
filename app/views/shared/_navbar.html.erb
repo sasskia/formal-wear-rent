@@ -5,10 +5,12 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="White Tie" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+  <%= simple_form_for :search, url: listings_path, method: "GET", html: { class: 'search-form-control form-inline' } do |f| %>
+    <%= f.input :name, label_html: {class: "label"}, input_html: {value: "", class: 'form-control string required mr-sm-2', placeholder: "White Tie" }  %>
+    <%= f.input :start_date, as: :date, html5: true, label_html: {class: "label"}, input_html: {value: "", class: 'form-control mr-sm-2' }%>
+    <%= f.input :end_date, as: :date, html5: true, label_html: {class: "label"}, input_html: {value: "", class: 'form-control mr-sm-2' } %>
+    <%= f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+  <% end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
