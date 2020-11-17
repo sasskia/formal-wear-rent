@@ -1,0 +1,31 @@
+.footer {
+  text-align: center;
+  background-color: #FFFFFF;
+  margin-top: 50px;
+}
+
+.footer > p{
+  font-size: 25px;
+}
+
+.footer-icons{
+  display: flex;
+  list-style: none;
+  font-size: 30px;
+  justify-content: center;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+body > div.footer > div > ul > li > a{
+  text-decoration: none;
+  color: black;
+}
+
+body > div.footer > div > ul > li > a:hover{
+  opacity: 0.7;
+}
+
+body > div.footer > div > ul > li{
+  padding: 0px 32px;
+}
