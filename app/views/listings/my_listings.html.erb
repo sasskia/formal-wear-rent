@@ -4,8 +4,15 @@
 <ul>
   <% @listings.each do |listing| %>
   <%=link_to listing_path(listing.id) do %>
-      <li><%= listing.name %>, <%= listing.category %></li>
+      <li>
+        <%= listing.name %>, <%= listing.category %>
+        <%= link_to listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-remove-link' do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </li>
     <% end %>
   <% end %>
 </ul>
+
+<%= link_to "Add a listing", new_listing_path(), class: "btn btn-primary" %>
 </div>
