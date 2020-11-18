@@ -2,7 +2,7 @@
       <%= render 'shared/navbar_white' %>
  <% end %>
 
-<div class="container mt-5">
+<div class="containers">
   <h1>Booking Summary for the <%= @booking.listing.name %> </h1>
   <p>From <%= @booking.start_date %> to <%= @booking.end_date %></p>
   <% if @booking.confirmed.nil? %>
