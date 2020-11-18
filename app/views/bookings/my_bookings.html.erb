@@ -1,5 +1,8 @@
 <div class="container mt-5">
   <h1>My Bookings</h1>
+  <% pending = 0 %>
+  <% confirmed = 0 %>
+  <% declined = 0 %>
 
   <h2>Upcoming Bookings</h2>
   <ul>
@@ -10,10 +13,14 @@
             <%= booking.listing.name %>, <%= booking.listing.category %>
             From <%= booking.start_date %> to <%= booking.end_date %>
           </li>
+          <% confirmed += 1 %>
         <% end %>
       <% end %>
     <% end %>
   </ul>
+  <% if confirmed = 0 %>
+  <p>No Confirmed bookings at the moment</p>
+  <% end %>
 
   <h2>Pending Bookings</h2>
   <ul>
@@ -24,10 +31,14 @@
             <%= booking.listing.name %>, <%= booking.listing.category %>
             From <%= booking.start_date %> to <%= booking.end_date %>
           </li>
+          <% pending += 1 %>
         <% end %>
       <% end %>
     <% end %>
   </ul>
+  <% if pending = 0 %>
+  <p>No Pending bookings at the moment</p>
+  <% end %>
 
   <h2>Declined Bookings</h2>
   <ul>
@@ -38,8 +49,12 @@
             <%= booking.listing.name %>, <%= booking.listing.category %>
             From <%= booking.start_date %> to <%= booking.end_date %>
           </li>
+          <% declined +=1 %>
         <% end %>
       <% end %>
     <% end %>
   </ul>
+  <% if declined = 0 %>
+  <p>No Declined bookings at the moment</p>
+  <% end %>
 </div>
