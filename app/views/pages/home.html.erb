@@ -9,21 +9,21 @@
 
 <div class="gender-container">
 
-  <a href="#">
+  <%= link_to listings_path(gender: "men") do %>
     <div class="gender-button">
       <div class="gender-text">
-        <p>Male</p>
+        <p>Men</p>
       </div>
     </div>
-  </a>
+  <% end %>
 
-  <a href="#">
+  <%= link_to listings_path(gender: "women") do %>
     <div class="gender-button">
       <div class="gender-text">
-        <p>Female</p>
+        <p>Women</p>
       </div>
     </div>
-  </a>
+  <% end %>
 
 </div>
 

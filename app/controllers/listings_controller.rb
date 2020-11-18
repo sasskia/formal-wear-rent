@@ -2,7 +2,11 @@ class ListingsController < ApplicationController
   #after_filter "save_my_previous_url", only: [:update]
 
   def index
-    @listings = Listing.all
+    if params.has_key?(:gender)
+      @listings = Listing.where(gender: params[:gender])
+    else
+      @listings = Listing.all
+    end
   end
 
   def my_listings
@@ -11,6 +15,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @booking = Booking.new()
   end
 
   def new
