@@ -1,11 +1,26 @@
-<div class="container mt-5">
-<h1>Listings</h1>
+  <div class="index-container">
+  
+    <h1>Listings</h1>
 
-<ul>
-  <% @listings.each do |listing| %>
-    <%= link_to listing_path(listing.id) do%>
-      <li><%= listing.name %>, <%= listing.category %> ,  € <%=listing.price_per_night%></li>
-    <% end %>
-  <% end %>
-</ul>
-</div>
+    <div class="listings-container">
+    
+      <% @listings.each do |listing| %>
+        <div class="card_price-container">
+          <p  class=card-index-price> $ <%= listing.price_per_night %> per night</p>
+          <%= link_to listing_path(listing.id) do%>
+            <div class="card-index">
+              <div class="content">
+                <h2 class="title"><%= listing.name %></h2>
+                <p class="card-index-info"><%= listing.description %></p>
+                <p class="card-index-info"><%= listing.category %></p>
+              </div>
+            </div>
+        </div>
+
+
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+
