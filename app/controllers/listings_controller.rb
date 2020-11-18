@@ -3,6 +3,7 @@ class ListingsController < ApplicationController
 
   def index
     if params.has_key?(:gender)
+      @search = params[:gender]
       @listings = Listing.where(gender: params[:gender])
     else
       @listings = Listing.all
