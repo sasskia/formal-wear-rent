@@ -1,4 +1,10 @@
-<div class="container mt-5">
+
+<% content_for :navbar do %>
+      <%= render 'shared/navbar_white' %>
+ <% end %>
+
+<div class="containers">
+                     
 <h2>My new booking requests</h2>
   <% pending = 0 %>
   <% confirmed = 0 %>
@@ -42,19 +48,17 @@
     <p>No confirmed bookings</p>
   <% end %>
 
-<h2>My Listings</h2>
+  <h2>My rented out items</h2>
 
-<ul>
   <% @listings.each do |listing| %>
-  <%=link_to listing_path(listing.id) do %>
-      <li>
-        <%= listing.name %>, <%= listing.category %>
-        <%= link_to listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <i class="fas fa-trash"></i>
+      <%listing.bookings.each do |booking| %>
+        <% if booking.confirmed == true %>
+          <p><%=booking.listing.name %></p>
+          <p><%=booking.start_date%> - <%=booking.end_date %></p>
+          <p><%=booking.user.first_name %> <%= booking.user.last_name %> @ <%=booking.user.university %></p>
+          <p>Contact: <%=booking.user.email%></p>
         <% end %>
-          <%= link_to edit_listing_path(listing) do %>
-          <i class="fas fa-pen"></i>
-        <% end %>
+
         <% listings += 1 %>
       </li>
     <% end %>
@@ -64,5 +68,25 @@
     <p>No Listings Requests</p>
   <% end %>
 
-<%= link_to "Add a listing", new_listing_path(), class: "btn btn-primary" %>
+
+  <h2>My Listings</h2>
+
+
+  <ul>
+    <% @listings.each do |listing| %>
+    <%=link_to listing_path(listing.id) do %>
+        <li>
+          <%= listing.name %>, <%= listing.category %>
+          <%= link_to listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+            <%= link_to edit_listing_path(listing) do %>
+            <i class="fas fa-pen"></i>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+
+  <%= link_to "Add a listing", new_listing_path(), class: "btn btn-primary" %>
 </div>
