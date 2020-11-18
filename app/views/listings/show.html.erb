@@ -13,7 +13,7 @@
         <h2><%= @listing.name %></h2>
         <h3><%= @listing.description%></h3>
         <p> Size: <%= @listing.size%></p>
-        <p> Price per night: € <%= @listing.price_per_night%></p>
+        <p> Price per night: £ <%= @listing.price_per_night%></p>
 
         <% if !current_user.nil? %>
         <%= link_to edit_listing_path(@listing) do %>

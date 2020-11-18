@@ -12,16 +12,22 @@ Booking.destroy_all
 
 puts "Creating users"
 user1 = User.create(first_name: 'John', last_name: 'Doe', email: 'john@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
-user2 = User.create(first_name: 'Jane', last_name: 'Smith', email: 'jane@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Oxford')
-user3 = User.create(first_name: 'Josh', last_name: 'Doe', email: 'josh@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Harvard')
-user4 = User.create(first_name: 'Amanda', last_name: 'Duncan', email: 'amanda@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Princeton')
+user2 = User.create(first_name: 'Jane', last_name: 'Smith', email: 'jane@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
+user3 = User.create(first_name: 'Josh', last_name: 'Doe', email: 'josh@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
+user4 = User.create(first_name: 'Amanda', last_name: 'Duncan', email: 'amanda@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
+user5 = User.create(first_name: 'Peter', last_name: 'Smith', email: 'peter@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
+user6 = User.create(first_name: 'Emily', last_name: 'Johnson', email: 'emily@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
 
 puts "Creating listings"
-item1 = Listing.create(name: 'Black dress', category: 'Dress', gender: 'women', description: 'Beautiful and very classic black dress.', size: '10', price_per_night: 20, user_id: user1.id)
-item2 = Listing.create(name: 'Silver gown', category: 'Gown', gender: 'women', description: 'Very shiny and very elegant gown.', size: 'M', price_per_night: 50, user_id: user2.id)
-item3 = Listing.create(name: 'Tuxedo', category: 'Tuxedo', gender: 'men', description: 'Very handsome and fancy tuxedo.', size: 'M', price_per_night: 20, user_id: user3.id)
-item4 = Listing.create(name: 'Black tie', category: 'Black tie', gender: 'men', description: 'Super chic and super nice.', size: 'L', price_per_night: 10, user_id: user3.id)
-item5 = Listing.create(name: 'Red suit', category: 'Tuxedo', gender: 'men', description: 'Super stylish and modern suit.', size: 'S', price_per_night: 30, user_id: user2.id)
+item1 = Listing.create(name: 'Black dress', category: 'dress', gender: 'women', description: 'Beautiful and very classic black dress.', size: '10', price_per_night: 20, user_id: user2.id)
+item2 = Listing.create(name: 'Silver gown', category: 'gown', gender: 'women', description: 'Very shiny and very elegant gown.', size: 'M', price_per_night: 50, user_id: user2.id)
+item3 = Listing.create(name: 'Tuxedo', category: 'tuxedo', gender: 'men', description: 'Very handsome and fancy tuxedo.', size: 'M', price_per_night: 20, user_id: user3.id)
+item4 = Listing.create(name: 'Black tie', category: 'black tie', gender: 'men', description: 'Super chic and super nice.', size: 'L', price_per_night: 10, user_id: user3.id)
+item5 = Listing.create(name: 'Red suit', category: 'tuxedo', gender: 'men', description: 'Super stylish and modern suit.', size: 'S', price_per_night: 30, user_id: user3.id)
+item6 = Listing.create(name: 'Full white tie', category: 'white tie', gender: 'men', description: 'Full White Tie for your next ball!', size: 'S', price_per_night: 30, user_id: user3.id)
+item7 = Listing.create(name: 'Black heels', category: 'heels', gender: 'women', description: 'Black heels to go with any dress!', size: '6', price_per_night: 10, user_id: user4.id)
+item8 = Listing.create(name: 'Chic maroon ball gown', category: 'gown', gender: 'women', description: 'The ultimate showstopper!', size: 'M', price_per_night: 15, user_id: user6.id)
+item9 = Listing.create(name: 'Self-tying black bowtie', category: 'black tie', gender: 'men', description: 'silky design', size: 'Standard', price_per_night: 3, user_id: user3.id)
 
 puts "Creating bookings"
 booking1 = Booking.create(user_id: user4.id, listing_id: item2.id, start_date: Time.now, end_date: Time.now + 60000, confirmed: true)

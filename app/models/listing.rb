@@ -4,7 +4,7 @@ class Listing < ApplicationRecord
   has_many :reviews
   validates :name, presence: true
   validates :name, length: { maximum: 50 }
-  validates :category, inclusion: { in: ["Tuxedo", "Black tie", "Gown", "Dress"] }
+  validates :category, inclusion: { in: ["tuxedo", "black tie", "white tie", "gown", "dress", "heels"] }
   validates :gender, inclusion: { in: %w(men women) }
   validates :gender, presence: true
   validates :category, presence: true

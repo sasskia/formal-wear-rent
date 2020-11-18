@@ -3,13 +3,14 @@
       <%= render 'shared/navbar_white' %>
  <% end %>
 
-<div class="containers">
+<div class="container">
                      
   <h2>My new booking requests</h2>
     <% pending = 0 %>
     <% confirmed = 0 %>
     <% listings = 0 %>
     <% @listings.each do |listing| %>
+
       <%listing.bookings.each do |booking| %>
         <% if booking.confirmed.nil? %>
           <p><%=booking.listing.name %></p>
