@@ -7,9 +7,12 @@ Rails.application.routes.draw do
   resources :listings do
     resources :bookings, only: [:create ]
   end
-  resources :bookings, only: [ :show, :edit, :update ] do
+  resources :bookings, only: [ :show, :update, :create, :new ] do
+
   end
 
   get 'my_listings', to: 'listings#my_listings', as: 'my_listings'
   get 'my_bookings', to: 'bookings#my_bookings', as: 'my_bookings'
+  patch 'booking_confirm/:id', to: 'bookings#booking_confirm', as: 'booking_confirm'
+  patch 'booking_decline/:id', to: 'bookings#booking_decline', as: 'booking_decline'
 end

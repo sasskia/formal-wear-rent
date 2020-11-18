@@ -18,9 +18,22 @@ class BookingsController < ApplicationController
     end
   end
 
+
   def show
     @booking = Booking.find(params[:id])
     @total_price = total_price(@booking)
+  end
+
+  def booking_decline
+    @booking = Booking.find(params[:id])
+    @booking.update(confirmed: false)
+    redirect_to my_listings_path
+  end
+
+  def booking_confirm
+    @booking = Booking.find(params[:id])
+    @booking.update(confirmed: true)
+    redirect_to my_listings_path
   end
 
   def total_price(booking)
