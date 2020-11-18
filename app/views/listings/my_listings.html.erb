@@ -86,10 +86,13 @@
               <% end %>
 
               <div class="renter-information">
-
-                <p id="booking-duration"><%=booking.start_date%> - <%=booking.end_date %></p>
-                <p><%=booking.user.first_name %> <%= booking.user.last_name %> @ <%=booking.user.university %></p>
-                <p>Contact: <%=booking.user.email%></p>
+                <div id="booking-duration">
+                  <p>Start: <i class="far fa-calendar-alt"></i> <%=booking.start_date%> </p>
+                  <p>End: <i class="far fa-calendar-alt"></i> <%=booking.end_date %></p>
+                </div>
+                <p><i class="fas fa-user"></i> <%=booking.user.first_name %> <%= booking.user.last_name %> </p>
+                <p><i class="fas fa-graduation-cap"> <%=booking.user.university %></i></p>
+                <p><i class="far fa-envelope"></i> <%=booking.user.email%></p>
 
               </div>
             </div>
