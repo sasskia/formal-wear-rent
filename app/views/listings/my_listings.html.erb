@@ -5,11 +5,11 @@
 
 <div class="containers">
                      
-<h2>My new booking requests</h2>
-  <% pending = 0 %>
-  <% confirmed = 0 %>
-  <% listings = 0 %>
-  <% @listings.each do |listing| %>
+  <h2>My new booking requests</h2>
+    <% pending = 0 %>
+    <% confirmed = 0 %>
+    <% listings = 0 %>
+    <% @listings.each do |listing| %>
       <%listing.bookings.each do |booking| %>
         <% if booking.confirmed.nil? %>
           <p><%=booking.listing.name %></p>
@@ -24,16 +24,16 @@
             <% pending += 1 %>
           <% end %>
         <% end %>
+      <% end %>
     <% end %>
-  <% end %>
   <% if pending == 0 %>
     <p>No pending Requests</p>
   <% end %>
 
 
-<h2>My confirmed booking requests</h2>
+  <h2>My confirmed booking requests</h2>
 
-<% @listings.each do |listing| %>
+  <% @listings.each do |listing| %>
     <%listing.bookings.each do |booking| %>
       <% if booking.confirmed == true %>
         <p><%=booking.listing.name %></p>
@@ -42,9 +42,9 @@
         <p>Contact: <%=booking.user.email%></p>
         <% confirmed += 1 %>
       <% end %>
+    <% end %>
   <% end %>
-<% end %>
-<% if pending == 0 %>
+  <% if pending == 0 %>
     <p>No confirmed bookings</p>
   <% end %>
 
@@ -63,7 +63,7 @@
       </li>
     <% end %>
   <% end %>
-</ul>
+
   <% if listings == 0 %>
     <p>No Listings Requests</p>
   <% end %>
@@ -71,22 +71,23 @@
 
   <h2>My Listings</h2>
 
-
-  <ul>
-    <% @listings.each do |listing| %>
-    <%=link_to listing_path(listing.id) do %>
-        <li>
-          <%= listing.name %>, <%= listing.category %>
-          <%= link_to listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="fas fa-trash"></i>
-          <% end %>
-            <%= link_to edit_listing_path(listing) do %>
-            <i class="fas fa-pen"></i>
-          <% end %>
-        </li>
+  <div class="my-listings-container">
+    <ul>
+      <% @listings.each do |listing| %>
+      <%=link_to listing_path(listing.id) do %>
+          <li>
+            <%= listing.name %>, <%= listing.category %>
+            <%= link_to listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fas fa-trash"></i>
+            <% end %>
+              <%= link_to edit_listing_path(listing) do %>
+              <i class="fas fa-pen"></i>
+            <% end %>
+          </li>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </ul>
 
-  <%= link_to "Add a listing", new_listing_path(), class: "btn btn-primary" %>
+    <%= link_to "Add a listing", new_listing_path(), class: "btn btn-primary" %>
+  </div>
 </div>
