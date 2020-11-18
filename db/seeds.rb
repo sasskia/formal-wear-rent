@@ -28,8 +28,8 @@ item3 = Listing.create(name: 'Tuxedo', category: 'tuxedo', gender: 'men', descri
 item4 = Listing.create(name: 'Black tie', category: 'black tie', gender: 'men', description: 'Super chic and super nice.', size: 'L', price_per_night: 10, user_id: user3.id)
 item5 = Listing.create(name: 'Red suit', category: 'tuxedo', gender: 'men', description: 'Super stylish and modern suit.', size: 'S', price_per_night: 30, user_id: user3.id)
 item6 = Listing.create(name: 'Full white tie', category: 'white tie', gender: 'men', description: 'Full White Tie for your next ball!', size: 'S', price_per_night: 30, user_id: user3.id)
-item7 = Listing.create(name: 'Black heels', category: 'heels', gender: 'women', description: 'Black heels to go with any dress!', size: '6', price_per_night: 10, user_id: user4.id)
-item8 = Listing.create(name: 'Chic maroon ball gown', category: 'gown', gender: 'women', description: 'The ultimate showstopper!', size: 'M', price_per_night: 15, user_id: user6.id)
+item7 = Listing.create(name: 'Black heels', category: 'heels', gender: 'women', description: 'Black heels to go with any dress!', size: '6', price_per_night: 10, user_id: user7.id)
+item8 = Listing.create(name: 'Chic maroon ball gown', category: 'gown', gender: 'women', description: 'The ultimate showstopper!', size: 'M', price_per_night: 15, user_id: user7.id)
 item9 = Listing.create(name: 'Self-tying black bowtie', category: 'black tie', gender: 'men', description: 'silky design', size: 'Standard', price_per_night: 3, user_id: user3.id)
 
 puts "Creating bookings"
