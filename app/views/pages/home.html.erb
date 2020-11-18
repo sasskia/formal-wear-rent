@@ -33,23 +33,23 @@
     <div class="card-row">
 
       <div class="card-container">
-        <a href="#">
+        <%= link_to listings_path(category: "black tie") do %>
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'bt.jpg' %>);">
             <div class="card-text">
               <p>Black Tie</p>
             </div>
           </div>
-        </a>
+        <% end %>
       </div>
 
      <div class="card-container">
-        <a href="#">
+        <%= link_to listings_path(category: "gown") do %>
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'gown.jpg' %>);">
             <div class="card-text">
               <p>Gowns</p>
             </div>
           </div>
-        </a>
+        <% end %>
       </div>
 
     </div>
@@ -57,23 +57,23 @@
     <div class="card-row">
 
       <div class="card-container">
-        <a href="#">
+        <%= link_to listings_path(category: "white tie") do %>
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'wt.jpg' %>);">
             <div class="card-text">
               <p>White Tie</p>
             </div>
           </div>
-        </a>
+        <% end %>
       </div>
 
       <div class="card-container">
-        <a href="#">
+        <%= link_to listings_path(category: "heels") do %>
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'heels.jpg' %>);">
             <div class="card-text">
               <p>Heels</p>
             </div>
           </div>
-        </a>
+        <% end %>
       </div>
 
     </div>

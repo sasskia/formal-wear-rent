@@ -5,6 +5,8 @@ class ListingsController < ApplicationController
     if params.has_key?(:gender)
       @search = params[:gender]
       @listings = Listing.where(gender: params[:gender])
+    elsif params.has_key?(:category)
+      @listings = Listing.where(category: params[:category])
     else
       @listings = Listing.all
     end
