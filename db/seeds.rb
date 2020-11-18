@@ -34,3 +34,4 @@ booking1 = Booking.create(user_id: user4.id, listing_id: item2.id, start_date: T
 booking2 = Booking.create(user_id: user4.id, listing_id: item4.id, start_date: Time.now, end_date: Time.now + 30000)
 booking3 = Booking.create(user_id: user4.id, listing_id: item1.id, start_date: Time.now, end_date: Time.now + 120000, confirmed: false)
 booking4 = Booking.create(user_id: user4.id, listing_id: item3.id, start_date: Time.now, end_date: Time.now + 60000)
+booking5 = Booking.create(user_id: user2.id, listing_id: item9.id, start_date: Time.now, end_date: Time.now + 60000)
