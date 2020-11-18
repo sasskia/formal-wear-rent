@@ -17,6 +17,9 @@ user3 = User.create(first_name: 'Josh', last_name: 'Doe', email: 'josh@gmail.com
 user4 = User.create(first_name: 'Amanda', last_name: 'Duncan', email: 'amanda@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
 user5 = User.create(first_name: 'Peter', last_name: 'Smith', email: 'peter@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
 user6 = User.create(first_name: 'Emily', last_name: 'Johnson', email: 'emily@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
+user7 = User.create(first_name: 'Sarah', last_name: 'Taylor', email: 'sarah@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
+
+
 
 puts "Creating listings"
 item1 = Listing.create(name: 'Black dress', category: 'dress', gender: 'women', description: 'Beautiful and very classic black dress.', size: '10', price_per_night: 20, user_id: user2.id)
@@ -32,6 +35,5 @@ item9 = Listing.create(name: 'Self-tying black bowtie', category: 'black tie', g
 puts "Creating bookings"
 booking1 = Booking.create(user_id: user4.id, listing_id: item2.id, start_date: Time.now, end_date: Time.now + 60000, confirmed: true)
 booking2 = Booking.create(user_id: user4.id, listing_id: item4.id, start_date: Time.now, end_date: Time.now + 30000)
-booking3 = Booking.create(user_id: user4.id, listing_id: item1.id, start_date: Time.now, end_date: Time.now + 120000, confirmed: false)
-booking4 = Booking.create(user_id: user4.id, listing_id: item3.id, start_date: Time.now, end_date: Time.now + 60000)
-booking5 = Booking.create(user_id: user2.id, listing_id: item9.id, start_date: Time.now, end_date: Time.now + 60000)
+booking3 = Booking.create(user_id: user4.id, listing_id: item3.id, start_date: Time.now, end_date: Time.now + 60000)
+booking4 = Booking.create(user_id: user1.id, listing_id: item9.id, start_date: Time.now, end_date: Time.now + 60000)
