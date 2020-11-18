@@ -2,6 +2,11 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 10px 46px;
+  border-radius: 30px;
+  padding-bottom: 40px;
+  background-color: #ffffff;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 
   a{
     text-decoration: none;
@@ -263,6 +268,15 @@
 
 #booking-duration{
   font-size: 18px;
+  border-bottom: 0.5px solid grey;
+  width: 215px;
+  margin: 0px auto;
+  margin-bottom: 12px;
+
+  p{
+    margin: 0;
+    padding-bottom: 5px;
+  }
 }
 
 .card-no-shadow{

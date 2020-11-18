@@ -91,7 +91,7 @@
                   <p>End: <i class="far fa-calendar-alt"></i> <%=booking.end_date %></p>
                 </div>
                 <p><i class="fas fa-user"></i> <%=booking.user.first_name %> <%= booking.user.last_name %> </p>
-                <p><i class="fas fa-graduation-cap"> <%=booking.user.university %></i></p>
+                <p><i class="fas fa-graduation-cap"></i> <%=booking.user.university %></p>
                 <p><i class="far fa-envelope"></i> <%=booking.user.email%></p>
 
               </div>
@@ -119,8 +119,8 @@
 
 <%# MY LISTINGS %>
 
-  <div class="d-flex mt-4">
-    <h2 class="mr-3">My Listings</h2>
+  <div class="d-flex mt-4 mb-4">
+    <h2 class="mr-3">My Current Listings</h2>
     <%= link_to "Add a listing", new_listing_path(), class: "btn btn-primary add_a_listing" %>
   </div>
 
