@@ -32,6 +32,13 @@
   <% end %>
 
 
+
+
+<%# CONFIRMED BOOKINGS %>
+
+
+
+
   <h2>My confirmed booking requests</h2>
 
   <% @listings.each do |listing| %>
@@ -49,15 +56,47 @@
     <p>No confirmed bookings</p>
   <% end %>
 
+
+
+<%# MY RENTINGS %>
+
+
+
   <h2>My rented out items</h2>
 
   <% @listings.each do |listing| %>
       <%listing.bookings.each do |booking| %>
         <% if booking.confirmed == true %>
-          <p><%=booking.listing.name %></p>
-          <p><%=booking.start_date%> - <%=booking.end_date %></p>
-          <p><%=booking.user.first_name %> <%= booking.user.last_name %> @ <%=booking.user.university %></p>
-          <p>Contact: <%=booking.user.email%></p>
+          <div class="my-rentings-container">
+          
+            <div class="card_price-container">
+
+              <p  class=card-my-listing-price> $ <%= listing.price_per_night %> per night</p>
+
+              <%= link_to listing_path(listing.id) do%>
+
+                <div class="card-my-listing card-no-shadow">
+                  <div class="content">
+                    <h2 class="title"><%= listing.name %></h2>
+                    <p class="card-my-listing-info"><%= listing.description %></p>
+                    <p class="card-my-listing-info"><%= listing.category %></p>
+                  </div>
+                </div>
+
+              <% end %>
+
+              <div class="renter-information">
+
+                <p id="booking-duration"><%=booking.start_date%> - <%=booking.end_date %></p>
+                <p><%=booking.user.first_name %> <%= booking.user.last_name %> @ <%=booking.user.university %></p>
+                <p>Contact: <%=booking.user.email%></p>
+
+              </div>
+            </div>
+
+          </div>
+
+
         <% end %>
 
         <% listings += 1 %>
@@ -69,7 +108,15 @@
     <p>No Listings Requests</p>
   <% end %>
 
-  <div class="d-flex">
+
+
+
+
+
+
+<%# MY LISTINGS %>
+
+  <div class="d-flex mt-4">
     <h2 class="mr-3">My Listings</h2>
     <%= link_to "Add a listing", new_listing_path(), class: "btn btn-primary add_a_listing" %>
   </div>
@@ -100,6 +147,7 @@
           </div>
 
         <% end %>
+
       </div>
     <% end %>
 
