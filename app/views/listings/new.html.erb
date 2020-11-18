@@ -1,13 +1,41 @@
-<div class="container mt-5">
-  <h1>Add a listing</h1>
+<div class="new-listing-container">
 
-  <%= simple_form_for @listing do |f| %>
-    <%= f.input :name %>
-    <%= f.input :price_per_night %>
-    <%= f.input :gender %>
-    <%= f.input :category %>
-    <%= f.input :size %>
-    <%= f.input :description, as: :text %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
+  <h1>Create A New Listing</h1>
+
+  <div class="new-listing-content">
+  
+    <div class="new-listing-form">
+
+      <%= simple_form_for @listing do |f| %>
+        <div class="form-group new-listing-form-item">
+          <%= f.input :name, input_html: { class: 'form-control' }, placeholder: 'Shiny red dress' %>
+        </div>
+        <div class="form-group new-listing-form-item">
+          <%= f.input :price_per_night, input_html: { class: 'form-control' }, label: '£ Per Night' ,placeholder: '25' %>
+        </div>
+        <div class="form-group new-listing-form-item">
+          <%= f.input :gender, as: :radio_buttons, collection: [['men', 'Female'], ['women', 'Male']], label_method: :second, value_method: :first, input_html: { class: 'form-control' } %>
+        </div>
+        <div class="form-group new-listing-form-item">
+          <%= f.input :category, collection: ["Tuxedo", "Black tie", "Gown", "Dress"], input_html: { class: 'form-control' } %>
+        </div>
+        <div class="form-group new-listing-form-item">
+          <%= f.input :size, input_html: { class: 'form-control' }, label: 'Size (EUR)', placeholder: '7.5' %>
+        </div>
+        <div class="form-group new-listing-form-item">
+          <%= f.input :description, as: :text, input_html: { class: 'form-control' }, placeholder: 'An elegeant dress for any occassion' %>
+        </div>
+        <div class="form-group new-listing-form-item">
+          <%= f.button :submit, class: "btn btn-primary", id: "create-listing" %>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="new-listing-image">
+      <img src="https://images.pexels.com/photos/5636312/pexels-photo-5636312.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+    </div>
+
+  </div>
+
 </div>
