@@ -14,12 +14,13 @@
 @import "components/index";
 @import "pages/index";
 
-.containers {
-  margin-top: 100px;
+.container {
+  position: relative;
+  min-height: 70vh;
+  margin-top: 100px !important;
   width: 100%;
   padding-right: 15px;
   padding-left: 40px;
   margin-right: auto;
   margin-left: auto;
-  height: 80vh;
 }
