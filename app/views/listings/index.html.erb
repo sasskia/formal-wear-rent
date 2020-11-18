@@ -4,7 +4,12 @@
 
   <div class="index-container">
 
-    <h1>Listings</h1>
+    <h1>Listings
+      <% if !@search.nil? %>
+      for:
+      <%= @search %>
+      <% end %>
+    </h1>
 
     <div class="listings-container">
 
