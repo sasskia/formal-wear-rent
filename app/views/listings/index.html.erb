@@ -1,9 +1,13 @@
+<% content_for :navbar do %>
+      <%= render 'shared/navbar_white' %>
+ <% end %>
+
   <div class="index-container">
-  
+
     <h1>Listings</h1>
 
     <div class="listings-container">
-    
+
       <% @listings.each do |listing| %>
         <div class="card_price-container">
           <p  class=card-index-price> $ <%= listing.price_per_night %> per night</p>
