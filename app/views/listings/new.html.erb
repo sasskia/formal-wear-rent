@@ -18,7 +18,7 @@
           <%= f.input :price_per_night, input_html: { class: 'form-control' }, label: '£ Per Night' ,placeholder: '25' %>
         </div>
         <div class="form-group new-listing-form-item">
-          <%= f.input :gender, as: :radio_buttons, collection: [['men', 'Female'], ['women', 'Male']], label_method: :second, value_method: :first, input_html: { class: 'form-control' } %>
+          <%= f.input :gender, as: :radio_buttons, collection: [['women', 'Female'], ['men', 'Male']], label_method: :second, value_method: :first, input_html: { class: 'form-control' } %>
         </div>
         <div class="form-group new-listing-form-item">
           <%= f.input :category, collection: ["Tuxedo", "Black tie", "Gown", "Dress"], input_html: { class: 'form-control' } %>
