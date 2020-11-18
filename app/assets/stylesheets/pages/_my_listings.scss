@@ -231,3 +231,40 @@
     }
   }
 }
+
+
+
+
+
+// RENTINGS CSS
+
+
+
+
+.my-rentings-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  a{
+    text-decoration: none;
+  }
+}
+
+.renter-information {
+  text-align: center;
+  background-color: #ffffff;
+  width: 250px;
+  margin: 0 auto;
+  font-size: 13px;
+  border-radius: 0 0 15px 15px;
+  padding-bottom: 1px;
+}
+
+#booking-duration{
+  font-size: 18px;
+}
+
+.card-no-shadow{
+  box-shadow: none !important;
+}
