@@ -36,14 +36,16 @@
         </div>
       </div>
       <div class="form">
-      <h1>Make a booking</h1>
+        <% if @listing.user == current_user %>
+        <% else %>
+          <h1>Make a booking</h1>
 
-      <%= simple_form_for [@listing,@booking] do |f| %>
-        <%= f.input :start_date, as: :date, html5: true %>
-        <%= f.input :end_date, as: :date, html5: true %>
-        <%= f.button :submit, class: "btn btn-success" %>
+          <%= simple_form_for [@listing,@booking] do |f| %>
+            <%= f.input :start_date, as: :date, html5: true %>
+            <%= f.input :end_date, as: :date, html5: true %>
+            <%= f.button :submit, class: "btn btn-success" %>
+        <% end %>
       <% end %>
-
     </div>
     </div>
   </div>
