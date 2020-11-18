@@ -14,5 +14,24 @@
 }
 
 .navbar-lewagon-white {
+  justify-content: space-between;
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+  margin-bottom: 20px;
   background-color: white;
+
+}
+
+.navbar-lewagon-white .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon-white .navbar-brand img {
+  width: 40px;
+}
+
+.search-container {
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
 }

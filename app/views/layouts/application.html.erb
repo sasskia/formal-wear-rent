@@ -15,8 +15,11 @@
 
   <body>
     <%= render 'shared/flashes' %>
-    <%= render "shared/navbar" %>
-    <%= render "shared/navbar" %>
+    <% if content_for?(:navbar) %>
+        <%= yield(:navbar) %>
+    <% else %>
+       <%= yield(:navbar_white) %>
+    <% end %>
     <%= yield %>
     <%= render "shared/footer" %>
   </body>
