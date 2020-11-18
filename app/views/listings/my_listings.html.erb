@@ -68,26 +68,40 @@
     <p>No Listings Requests</p>
   <% end %>
 
-
-  <h2>My Listings</h2>
+  <div class="d-flex">
+    <h2 class="mr-3">My Listings</h2>
+    <%= link_to "Add a listing", new_listing_path(), class: "btn btn-primary add_a_listing" %>
+  </div>
 
   <div class="my-listings-container">
-    <ul>
-      <% @listings.each do |listing| %>
-      <%=link_to listing_path(listing.id) do %>
-          <li>
-            <%= listing.name %>, <%= listing.category %>
-            <%= link_to listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <i class="fas fa-trash"></i>
-            <% end %>
-              <%= link_to edit_listing_path(listing) do %>
-              <i class="fas fa-pen"></i>
-            <% end %>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
+    
+    <% @listings.each do |listing| %>
+      <div class="card_price-container">
 
-    <%= link_to "Add a listing", new_listing_path(), class: "btn btn-primary" %>
+        <%= link_to edit_listing_path(listing) do %>
+          <i class="fas fa-pen" id="edit_button"></i>
+        <% end %>
+
+        <%= link_to listing_path(listing), method: :delete, data: { confirm: "Delete #{listing.name}?" } do %>
+          <i class="fas fa-trash" id="delete_button"></i>
+        <% end %>
+
+        <p  class=card-my-listing-price> $ <%= listing.price_per_night %> per night</p>
+
+        <%= link_to listing_path(listing.id) do%>
+
+          <div class="card-my-listing">
+            <div class="content">
+              <h2 class="title"><%= listing.name %></h2>
+              <p class="card-my-listing-info"><%= listing.description %></p>
+              <p class="card-my-listing-info"><%= listing.category %></p>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
+
 </div>
