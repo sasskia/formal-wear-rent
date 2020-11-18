@@ -266,7 +266,7 @@
   padding-bottom: 1px;
 }
 
-#booking-duration{
+#booking-duration-text{
   font-size: 18px;
   border-bottom: 0.5px solid grey;
   width: 215px;
@@ -281,4 +281,42 @@
 
 .card-no-shadow{
   box-shadow: none !important;
+}
+
+.borrower-info{
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px 1px 1px 0;
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+
+  p{
+    margin: 0;
+    padding-bottom: 2px;
+  }
+  p:nth-child(1){
+    font-size: 21px;
+    text-decoration: underline;
+    font-weight: 500;
+    padding-bottom: 6px;
+  }
+}
+
+.request_to_borrow{
+  padding-top: 8px;
+  font-size: 25px;
+  margin-bottom: 3px !important;
+}
+
+.borrower-duration{
+  text-align: center;
+  background-color: #ffffff;
+  width: 250px;
+  margin: 0 auto;
+  font-size: 13px;
+  border-radius: 15px;
+  padding-bottom: 1px;
 }
