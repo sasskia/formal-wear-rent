@@ -15,7 +15,7 @@
 
       <% @listings.each do |listing| %>
         <div class="card_price-container">
-          <p  class=card-index-price> $ <%= listing.price_per_night %> per night</p>
+          <p  class=card-index-price> £ <%= listing.price_per_night %> per night</p>
           <%= link_to listing_path(listing.id) do%>
             <div class="card-index">
               <div class="content">
