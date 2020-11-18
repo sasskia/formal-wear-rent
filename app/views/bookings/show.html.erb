@@ -2,19 +2,53 @@
       <%= render 'shared/navbar_white' %>
  <% end %>
 
-<div class="containers">
-  <h1>Booking Summary for the <%= @booking.listing.name %> </h1>
-  <p>From <%= @booking.start_date %> to <%= @booking.end_date %></p>
-  <% if @booking.confirmed.nil? %>
-    <p>Status: Pending</p>
-  <% elsif @booking.confirmed == true %>
-    <p>Status: Confirmed</p>
-  <% else %>
-    <p>Status: Declined</p>
-  <% end %>
-  <p><strong>Total price: € <%= @total_price %></strong></p>
-  <h2>Lender info</h2>
-  <p><%= @booking.listing.user.first_name %> <%= @booking.listing.user.last_name %></p>
-  <p>Email: <%= @booking.listing.user.email %></p>
-  <p>University: <%= @booking.listing.user.university %></p>
+<div class="container">
+  <h1>Booking Confirmation</h1>
+
+  <div class="listing-container">
+    <div class="primary-image">
+      <%= image_tag "wtlisting", alt: "user_pic" %>
+    </div>
+    <div class="listing-info">
+      <div class="listing-box">
+        <h2><%= @booking.listing.name %></h2>
+        <p>From <%= @booking.start_date %> to <%= @booking.end_date %></p>
+          <% if @booking.confirmed.nil? %>
+            <p>Status: Pending</p>
+          <% elsif @booking.confirmed == true %>
+            <p>Status: Confirmed</p>
+          <% else %>
+            <p>Status: Declined</p>
+          <% end %>
+        <p><strong>Total price: € <%= @total_price %></strong></p>
+
+        <br>
+
+        <h3 style="font-weight: bold; text-align: center;">Lender details:</h3>
+        <div class="lender-info">
+          <div class="lender-text">
+            <p><%= @booking.listing.user.first_name %> <%= @booking.listing.user.last_name %></p>
+            <p>Email: <%= @booking.listing.user.email %></p>
+            <p>University: <%= @booking.listing.user.university %></p>
+          </div>
+
+          <div class="lender-image">
+            <%= image_tag "brian", class: "avatar" %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="reviews-container">
+    <h2>Reviews:</h2>
+  </div>
+
+<% if current_user.nil? %>
+<%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
+<% else %>
+<%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
+<%= link_to "Back to my listings", my_listings_path , class: "btn btn-primary" %>
+<% end %>
 </div>
