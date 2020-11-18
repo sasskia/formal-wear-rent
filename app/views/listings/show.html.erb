@@ -31,10 +31,16 @@
           </div>
         </div>
       </div>
+      <div class="form">
+      <h1>Make a booking</h1>
 
-      <div class="listing-button">
-          <%= link_to 'Make a booking', listing_path(@listing.id), class: "btn btn-success"  %>
-      </div>
+      <%= simple_form_for [@listing,@booking] do |f| %>
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
+        <%= f.button :submit, class: "btn btn-success" %>
+      <% end %>
+
+    </div>
     </div>
   </div>
 
