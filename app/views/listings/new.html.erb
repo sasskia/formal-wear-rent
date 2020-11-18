@@ -11,19 +11,23 @@
     <div class="new-listing-form">
 
       <%= simple_form_for @listing do |f| %>
-        <div class="form-group new-listing-form-item">
+        <div class="form-group row new-listing-form-item">
+          <i class="fas fa-user-tie pr-2"></i>
           <%= f.input :name, input_html: { class: 'form-control' }, placeholder: 'Shiny red dress' %>
         </div>
         <div class="form-group new-listing-form-item">
           <%= f.input :price_per_night, input_html: { class: 'form-control' }, label: '£ Per Night' ,placeholder: '25' %>
         </div>
         <div class="form-group new-listing-form-item">
+          <i class="fas fa-male"></i>
+          <i class="fas fa-female"></i>
           <%= f.input :gender, as: :radio_buttons, collection: [['women', 'Female'], ['men', 'Male']], label_method: :second, value_method: :first, input_html: { class: 'form-control' } %>
         </div>
         <div class="form-group new-listing-form-item">
           <%= f.input :category, collection: ["tuxedo", "black tie", "gown", "dress", "heels"], input_html: { class: 'form-control' } %>
         </div>
-        <div class="form-group new-listing-form-item">
+        <div class="form-group row new-listing-form-item">
+          <i class="fas fa-ruler pr-2"></i>
           <%= f.input :size, input_html: { class: 'form-control' }, label: 'Size (EUR)', placeholder: '7.5' %>
         </div>
         <div class="form-group new-listing-form-item">
