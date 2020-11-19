@@ -34,6 +34,9 @@
           <%= f.input :description, as: :text, input_html: { class: 'form-control' }, placeholder: 'An elegeant dress for any occassion' %>
         </div>
         <div class="form-group new-listing-form-item">
+          <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+        </div>
+        <div class="form-group new-listing-form-item">
           <%= f.button :submit, class: "btn btn-primary", id: "create-listing" %>
         </div>
       <% end %>
