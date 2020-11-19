@@ -61,6 +61,6 @@ class ListingsController < ApplicationController
   # end
 
   def strong_params
-    params.require(:listing).permit(:name, :category, :gender, :size, :price_per_night, :description)
+    params.require(:listing).permit(:name, :category, :gender, :size, :price_per_night, :description, photos: [])
   end
 end
