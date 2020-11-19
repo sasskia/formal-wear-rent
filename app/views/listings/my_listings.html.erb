@@ -167,9 +167,8 @@
           <i class="fas fa-pen" id="edit_button"></i>
         <% end %>
 
-        <%= link_to listing_path(listing), method: :delete, data: { confirm: "Delete #{listing.name}?" } do %>
-          <i class="fas fa-trash" id="delete_button"></i>
-        <% end %>
+        <i class="fas fa-trash delete-button" id="delete_button" data-id="<%= listing.id %>"></i>
+        <%= link_to "", listing_path(listing.id), method: :delete, class: "hidden", id: dom_id(listing) %>
 
         <p  class=card-my-listing-price> $ <%= listing.price_per_night %> per night</p>
 

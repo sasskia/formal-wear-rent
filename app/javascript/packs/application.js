@@ -9,12 +9,24 @@ require("@rails/activestorage").start()
 require("channels")
 import 'bootstrap';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
-
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
-  flatpickr(".date_form");
+  // flatpickr(".date_form");
+
+  initSweetalert('.delete-button', {
+    title: "Are you sure?",
+    text: "This action cannot be reversed",
+    icon: "warning"
+  }, (value) => {
+    if (value?.dataset?.id) {
+      console.log(value.dataset.id)
+      const link = document.querySelector(`#listing_${value.dataset.id}`);
+      link.click();
+    }
+  });
 });
 
 
