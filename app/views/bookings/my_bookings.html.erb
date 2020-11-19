@@ -20,7 +20,7 @@
           <% if !booking.start_date.past? && booking.confirmed == true %>
 
               <div class="card_price-container">
-                
+
                 <p  class=card-my-booking-price> Total Cost: £ <%= booking.listing.price_per_night * ((booking.start_date..booking.end_date).count) %> <br>Status: <span style="color: #1EDD87">Confirmed</span> </p>
 
                   <%=link_to booking_path(booking.id) do %>
@@ -149,7 +149,6 @@
 
                 <div class="card_price-container">
                   <p  class=card-my-booking-price> Total Cost: £ <%= booking.listing.price_per_night * ((booking.start_date..booking.end_date).count) %> </p>
-                  <p  class=card-my-booking-status> Status: <span style="color: #DD3545">Declined</span> </p>
 
                     <%=link_to booking_path(booking.id) do %>
 

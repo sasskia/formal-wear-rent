@@ -35,7 +35,7 @@ userphoto5 = URI.open('https://www.port.ac.uk/-/media/images/component---600x600
 user5 = User.create!(first_name: 'Peter', last_name: 'Smith', email: 'peter@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
 user5.photo.attach(io: userphoto5, filename: 'user.png', content_type: 'image/png')
 
-userphoto6 = URI.open('https://lh3.googleusercontent.com/proxy/D3KL8WDkFWbfxfGhgcDC18uSThrnoOkHE_i4Aj6KUqHgmqUnh6VTby_Ag0iLjKJZgSbxl2paEY-_YqR2pHQl3yzV24zAzSbqcevVKHHUvG4OyMjiZrBRQmtaKk1jX5BYXtGFiQJTFVXT2PhG9e9AmnxHmsinsQ')
+userphoto6 = URI.open('https://static01.nyt.com/images/2019/11/17/books/review/17Salam/Salam1-superJumbo.jpg')
 user6 = User.create!(first_name: 'Emily', last_name: 'Johnson', email: 'emily@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
 user6.photo.attach(io: userphoto6, filename: 'user.png', content_type: 'image/png')
 
@@ -89,3 +89,4 @@ booking1 = Booking.create!(user_id: user4.id, listing_id: item2.id, start_date: 
 booking2 = Booking.create!(user_id: user4.id, listing_id: item4.id, start_date: Time.current.next_month + 100000, end_date: Time.current.next_month + 300000)
 booking3 = Booking.create!(user_id: user4.id, listing_id: item3.id, start_date: Time.current.next_month + 100000, end_date: Time.current.next_month + 600000)
 booking4 = Booking.create!(user_id: user1.id, listing_id: item9.id, start_date: Time.current.next_month + 100000, end_date: Time.current.next_month + 600000)
+booking5 = Booking.create!(user_id: user1.id, listing_id: item5.id, start_date: Time.now.beginning_of_month - 3.day, end_date: Time.now.beginning_of_month - 1.day)
