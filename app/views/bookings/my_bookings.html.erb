@@ -8,57 +8,130 @@
   <%# confirmed = 0 %>
   <%# declined = 0 %>
 
+<!-- Cards should have price, date, name of owner, University -->
+
+<!-- UPCOMING BOOKINS -->
+<!-- Carousel, in colour -->
+
   <h2>Upcoming Bookings</h2>
-  <ul>
-    <% @bookings.each do |booking| %>
-        <% if booking.confirmed == true %>
-        <%=link_to booking_path(booking.id) do %>
-          <li>
-            <%= booking.listing.name %>, <%= booking.listing.category %>
-            From <%= booking.start_date %> to <%= booking.end_date %>
-          </li>
-          <%# confirmed += 1 %>
-        <% end %>
-      <% end %>
-    <% end %>
-  </ul>
-  <%# if confirmed = 0 %>
-  <!-- <p>No Confirmed bookings at the moment</p> -->
-  <%# end %>
+
+    <div class="my-bookings-container">
+        <% @bookings.each do |booking| %>
+          <% if booking.confirmed == true %>
+
+              <div class="card_price-container">
+                <p  class=card-my-booking-price> £ <%= booking.listing.price_per_night %> per night</p>
+                <p  class=card-my-booking-status> Status: <span style="color: #1EDD87">Confirmed</span> </p>
+
+                  <%=link_to booking_path(booking.id) do %>
+
+                    <div class="card-my-booking card-no-shadow">
+                      <div class="content">
+                        <h2 class="title"><%= booking.listing.name %></h2>
+                        <p class="card-my-booking-info"><%= booking.listing.description %></p>
+                        <p class="card-my-booking-info">Size: <%= booking.listing.size %></p>
+                      </div>
+                    </div>
+                  <% end %>
+
+                  <div class="owner-information">
+                    <div id="booking-duration-text" class="pt-3">
+                      <p>Start: <i class="far fa-calendar-alt"></i> <%= booking.start_date %> </p>
+                      <p>End: <i class="far fa-calendar-alt"></i> <%= booking.end_date %></p>
+                    </div>
+                    <p><i class="fas fa-user"></i> <%= booking.listing.user.first_name %> <%= booking.listing.user.last_name %> </p>
+                    <p><i class="fas fa-graduation-cap"></i> <%=booking.listing.user.university %></p>
+                    <p><i class="far fa-envelope"></i> <%=booking.listing.user.email%></p>
+                  </div>
+
+                </div>
+              <% end %>
+              <%# listings += 1 %>
+          <% end %>
+
+        <%# if listings == 0 %>
+          <!--<p>No Listings Requests</p> -->
+        <%# end %>
+      </div>
 
   <h2>Pending Bookings</h2>
-  <ul>
-    <% @bookings.each do |booking| %>
-      <% if booking.confirmed == nil %>
-        <%=link_to booking_path(booking.id) do %>
-          <li>
-            <%= booking.listing.name %>, <%= booking.listing.category %>
-            From <%= booking.start_date %> to <%= booking.end_date %>
-          </li>
-          <%# pending += 1 %>
+  <div class="my-bookings-container">
+      <% @bookings.each do |booking| %>
+        <% if booking.confirmed == nil %>
+
+            <div class="card_price-container">
+              <p  class=card-my-booking-price> £ <%= booking.listing.price_per_night %> per night</p>
+              <p  class=card-my-booking-status> Status: Pending </p>
+
+                <%=link_to booking_path(booking.id) do %>
+
+                  <div class="card-my-booking card-no-shadow">
+                    <div class="content">
+                      <h2 class="title"><%= booking.listing.name %></h2>
+                      <p class="card-my-booking-info"><%= booking.listing.description %></p>
+                      <p class="card-my-booking-info">Size: <%= booking.listing.size %></p>
+                    </div>
+                  </div>
+                <% end %>
+
+                <div class="owner-information">
+                  <div id="booking-duration-text" class="pt-3">
+                    <p>Start: <i class="far fa-calendar-alt"></i> <%= booking.start_date %> </p>
+                    <p>End: <i class="far fa-calendar-alt"></i> <%= booking.end_date %></p>
+                  </div>
+                  <p><i class="fas fa-user"></i> <%= booking.listing.user.first_name %> <%= booking.listing.user.last_name %> </p>
+                  <p><i class="fas fa-graduation-cap"></i> <%=booking.listing.user.university %></p>
+                  <p><i class="far fa-envelope"></i> <%=booking.listing.user.email%></p>
+                </div>
+
+              </div>
+            <% end %>
+            <%# listings += 1 %>
         <% end %>
-      <% end %>
-    <% end %>
-  </ul>
-  <%# if pending = 0 %>
-  <!-- <p>No Pending bookings at the moment</p> -->
-  <%# end %>
+
+      <%# if listings == 0 %>
+        <!--<p>No Listings Requests</p> -->
+      <%# end %>
+    </div>
+
 
   <h2>Declined Bookings</h2>
-  <ul>
-    <% @bookings.each do |booking| %>
-      <% if booking.confirmed == false %>
-        <%=link_to booking_path(booking.id) do %>
-          <li>
-            <%= booking.listing.name %>, <%= booking.listing.category %>
-            From <%= booking.start_date %> to <%= booking.end_date %>
-          </li>
-          <%# declined +=1 %>
+  <div class="my-bookings-container">
+      <% @bookings.each do |booking| %>
+        <% if booking.confirmed == false %>
+
+            <div class="card_price-container">
+              <p  class=card-my-booking-price> £ <%= booking.listing.price_per_night %> per night</p>
+              <p  class=card-my-booking-status> Status: <span style="color: #DD3545">Declined</span> </p>
+
+                <%=link_to booking_path(booking.id) do %>
+
+                  <div class="card-my-booking card-no-shadow">
+                    <div class="content">
+                      <h2 class="title"><%= booking.listing.name %></h2>
+                      <p class="card-my-booking-info"><%= booking.listing.description %></p>
+                      <p class="card-my-booking-info">Size: <%= booking.listing.size %></p>
+                    </div>
+                  </div>
+                <% end %>
+
+                <div class="owner-information">
+                  <div id="booking-duration-text" class="pt-3">
+                    <p>Start: <i class="far fa-calendar-alt"></i> <%= booking.start_date %> </p>
+                    <p>End: <i class="far fa-calendar-alt"></i> <%= booking.end_date %></p>
+                  </div>
+                  <p><i class="fas fa-user"></i> <%= booking.listing.user.first_name %> <%= booking.listing.user.last_name %> </p>
+                  <p><i class="fas fa-graduation-cap"></i> <%=booking.listing.user.university %></p>
+                  <p><i class="far fa-envelope"></i> <%=booking.listing.user.email%></p>
+                </div>
+
+              </div>
+            <% end %>
+            <%# listings += 1 %>
         <% end %>
-      <% end %>
-    <% end %>
-  </ul>
-  <%# if declined = 0 %>
-  <!-- <p>No Declined bookings at the moment</p> -->
-  <%# end %>
-</div>
+
+      <%# if listings == 0 %>
+        <!--<p>No Listings Requests</p> -->
+      <%# end %>
+    </div>
+
