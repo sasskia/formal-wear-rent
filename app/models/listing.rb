@@ -14,4 +14,5 @@ class Listing < ApplicationRecord
   validates :size, presence: true
 
   searchkick
+
 end

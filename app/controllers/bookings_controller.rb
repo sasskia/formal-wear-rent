@@ -11,10 +11,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.listing = Listing.find(params[:listing_id])
-    if @booking.save!
+    if @booking.save
       redirect_to booking_path(@booking)
     else
-      render :show
+      flash[:errors] = @booking.errors
+      redirect_to "/listings/#{@booking.listing.id}"
     end
   end
 
