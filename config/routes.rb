@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :listings do
     resources :bookings, only: [:create ]
+    resources :reviews, only: [:create, :new ]
   end
   resources :bookings, only: [ :show, :update, :create, :new ] do
 

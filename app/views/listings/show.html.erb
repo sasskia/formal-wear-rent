@@ -41,7 +41,7 @@
         <% if @listing.user == current_user %>
         <% else %>
           <h1>Make a booking</h1>
-          
+
           <% if flash[:errors].present?  %>
             <% if flash[:errors][:overlaps_with_other].present? %>
               <p><%= flash[:errors][:overlaps_with_other][0] %></p>
@@ -95,6 +95,11 @@
 
   <div class="reviews-container">
     <h2>Reviews:</h2>
+    <p>
+      <% @reviews.each do |review| %>
+        <strong><%=review.user.first_name%> <%=review.user.last_name%></strong> gives <%= '⭐️' * review.rating %>, says <i>"<%= review.content %>"</i>
+      </p>
+      <% end unless @reviews.nil? %>
   </div>
 
 <% if current_user.nil? %>
