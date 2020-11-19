@@ -34,6 +34,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @reviews = @listing.reviews
     @booking = Booking.new()
   end
 
