@@ -6,9 +6,7 @@
 
   <div class="listing-container">
     <div class="primary-image">
-      <% @listing.photos.each do |photo| %>
-  <%= cl_image_tag photo.key %>
-<% end %>
+      <%= cl_image_tag @booking.listing.photos.first.key %>
     </div>
     <div class="listing-info">
       <div class="listing-box">
