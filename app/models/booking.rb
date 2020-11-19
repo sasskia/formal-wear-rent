@@ -21,7 +21,7 @@ class Booking < ApplicationRecord
     return if end_date.blank? || start_date.blank?
 
     if start_date < Time.now
-      errors.add(:start_date, "start date cannot be in the past")
+      errors.add(:start_date, "Start date cannot be in the past")
     end
   end
 
