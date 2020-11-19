@@ -42,11 +42,15 @@
         <% else %>
           <h1>Make a booking</h1>
 
-          <%= simple_form_for [@listing,@booking] do |f| %>
-            <%= f.input :start_date, as: :date, html5: true %>
-            <%= f.input :end_date, as: :date, html5: true %>
-            <%= f.button :submit, class: "btn btn-success" %>
-        <% end %>
+          <% if current_user.nil? %>
+            <%= link_to "Login to make a booking", new_user_session_path, class: "btn btn-primary" %>
+          <% else %>
+            <%= simple_form_for [@listing,@booking] do |f| %>
+              <%= f.input :start_date, as: :date, html5: true %>
+              <%= f.input :end_date, as: :date, html5: true %>
+              <%= f.button :submit, class: "btn btn-success" %>
+            <% end %>
+          <% end %>
       <% end %>
     </div>
     </div>
