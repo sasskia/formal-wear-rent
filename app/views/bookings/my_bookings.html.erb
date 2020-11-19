@@ -12,9 +12,9 @@
 
 <!-- UPCOMING BOOKINS -->
 <!-- Carousel, in colour -->
-
-  <h2>Upcoming Bookings</h2>
-
+    <div class="title-bookings pt-3">
+      <h2>Upcoming Bookings</h2>
+    </div>
     <div class="my-bookings-container">
         <% @bookings.each do |booking| %>
           <% if booking.confirmed == true %>
@@ -35,13 +35,13 @@
                   <% end %>
 
                   <div class="owner-information">
-                    <div id="booking-duration-text" class="pt-3">
+                    <div id="booking-duration" class="pt-3">
                       <p>Start: <i class="far fa-calendar-alt"></i> <%= booking.start_date %> </p>
                       <p>End: <i class="far fa-calendar-alt"></i> <%= booking.end_date %></p>
                     </div>
-                    <p><i class="fas fa-user"></i> <%= booking.listing.user.first_name %> <%= booking.listing.user.last_name %> </p>
+<!--                     <p><i class="fas fa-user"></i> <%= booking.listing.user.first_name %> <%= booking.listing.user.last_name %> </p>
                     <p><i class="fas fa-graduation-cap"></i> <%=booking.listing.user.university %></p>
-                    <p><i class="far fa-envelope"></i> <%=booking.listing.user.email%></p>
+                    <p><i class="far fa-envelope"></i> <%=booking.listing.user.email%></p> -->
                   </div>
 
                 </div>
@@ -54,7 +54,9 @@
         <%# end %>
       </div>
 
-  <h2>Pending Bookings</h2>
+  <div class="title-bookings pt-3">
+    <h2>Pending Bookings</h2>
+  </div>
   <div class="my-bookings-container">
       <% @bookings.each do |booking| %>
         <% if booking.confirmed == nil %>
@@ -75,13 +77,13 @@
                 <% end %>
 
                 <div class="owner-information">
-                  <div id="booking-duration-text" class="pt-3">
+                  <div id="booking-duration" class="pt-3">
                     <p>Start: <i class="far fa-calendar-alt"></i> <%= booking.start_date %> </p>
                     <p>End: <i class="far fa-calendar-alt"></i> <%= booking.end_date %></p>
                   </div>
-                  <p><i class="fas fa-user"></i> <%= booking.listing.user.first_name %> <%= booking.listing.user.last_name %> </p>
+<!--                   <p><i class="fas fa-user"></i> <%= booking.listing.user.first_name %> <%= booking.listing.user.last_name %> </p>
                   <p><i class="fas fa-graduation-cap"></i> <%=booking.listing.user.university %></p>
-                  <p><i class="far fa-envelope"></i> <%=booking.listing.user.email%></p>
+                  <p><i class="far fa-envelope"></i> <%=booking.listing.user.email%></p> -->
                 </div>
 
               </div>
@@ -95,7 +97,10 @@
     </div>
 
 
-  <h2>Declined Bookings</h2>
+
+  <div class="title-bookings pt-3">
+    <h2>Declined Bookings</h2>
+  </div>
   <div class="my-bookings-container">
       <% @bookings.each do |booking| %>
         <% if booking.confirmed == false %>
@@ -116,13 +121,13 @@
                 <% end %>
 
                 <div class="owner-information">
-                  <div id="booking-duration-text" class="pt-3">
+                  <div id="booking-duration" class="pt-3">
                     <p>Start: <i class="far fa-calendar-alt"></i> <%= booking.start_date %> </p>
                     <p>End: <i class="far fa-calendar-alt"></i> <%= booking.end_date %></p>
                   </div>
-                  <p><i class="fas fa-user"></i> <%= booking.listing.user.first_name %> <%= booking.listing.user.last_name %> </p>
+<!--                   <p><i class="fas fa-user"></i> <%= booking.listing.user.first_name %> <%= booking.listing.user.last_name %> </p>
                   <p><i class="fas fa-graduation-cap"></i> <%=booking.listing.user.university %></p>
-                  <p><i class="far fa-envelope"></i> <%=booking.listing.user.email%></p>
+                  <p><i class="far fa-envelope"></i> <%=booking.listing.user.email%></p> -->
                 </div>
 
               </div>
@@ -134,4 +139,6 @@
         <!--<p>No Listings Requests</p> -->
       <%# end %>
     </div>
+
+</div>
 
