@@ -1,0 +1,33 @@
+<% content_for :navbar do %>
+      <%= render 'shared/navbar_white' %>
+ <% end %>
+
+<div class="container">
+
+  <h1>Add A review for <% @listing.name %></h1>
+
+  <div class="new-listing-content">
+
+    <div class="new-listing-form">
+
+      <%= simple_form_for [ @listing, @review ]  do |f| %>
+        <div class="form-group row new-listing-form-item">
+          <i class="fas fa-user-tie pr-2"></i>
+          <%= f.input :content, as: :text, input_html: { class: 'form-control' }, placeholder: 'This was amazing!' %>
+        </div>
+        <div class="form-group new-listing-form-item">
+          <%= f.input :rating, input_html: { class: 'form-control' }, label: 'Out of 5' ,placeholder: '4' %>
+        </div>
+        <div class="form-group new-listing-form-item">
+          <%= f.button :submit, class: "btn btn-primary", id: "create-listing" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="new-listing-image">
+      <img src="https://images.pexels.com/photos/5636312/pexels-photo-5636312.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+    </div>
+
+  </div>
+
+</div>

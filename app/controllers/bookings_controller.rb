@@ -19,7 +19,6 @@ class BookingsController < ApplicationController
     end
   end
 
-
   def show
     @booking = Booking.find(params[:id])
     @total_price = total_price(@booking)
@@ -45,6 +44,5 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_date,:end_date)
-
   end
 end

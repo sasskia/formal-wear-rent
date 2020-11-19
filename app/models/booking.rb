@@ -5,9 +5,9 @@ class Booking < ApplicationRecord
 
   validate :end_date_after_start_date
 
-  validate :start_date_not_before_present
+  # validate :start_date_not_before_present
 
-  private 
+  private
 
   def end_date_after_start_date
     return if end_date.blank? || start_date.blank?

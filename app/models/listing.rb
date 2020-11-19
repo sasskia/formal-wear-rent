@@ -1,6 +1,6 @@
 class Listing < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :reviews
   has_many_attached :photos
   validates :name, presence: true
@@ -13,6 +13,6 @@ class Listing < ApplicationRecord
   validates :description, presence: true
   validates :size, presence: true
 
-  searchkick
+
 
 end
