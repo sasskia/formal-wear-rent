@@ -20,12 +20,11 @@
           <% if booking.confirmed == true %>
 
               <div class="card_price-container">
-                <p  class=card-my-booking-price> £ <%= booking.listing.price_per_night %> per night</p>
-                <p  class=card-my-booking-status> Status: <span style="color: #1EDD87">Confirmed</span> </p>
+                <p  class=card-my-booking-price> £ <%= booking.listing.price_per_night %> per night <br>Status: <span style="color: #1EDD87">Confirmed</span> </p>
 
                   <%=link_to booking_path(booking.id) do %>
 
-                    <div class="card-my-booking card-no-shadow">
+                    <div class="card-my-booking card-no-shadow" style="background-image: url('<%= cl_image_path booking.listing.photos.first.key%>')">
                       <div class="content">
                         <h2 class="title"><%= booking.listing.name %></h2>
                         <p class="card-my-booking-info"><%= booking.listing.description %></p>
@@ -62,12 +61,11 @@
         <% if booking.confirmed == nil %>
 
             <div class="card_price-container">
-              <p  class=card-my-booking-price> £ <%= booking.listing.price_per_night %> per night</p>
-              <p  class=card-my-booking-status> Status: Pending </p>
+              <p  class=card-my-booking-price> £ <%= booking.listing.price_per_night %> per night <br>Status: <span style="color: #9E9E9E">Pending</span> </p>
 
                 <%=link_to booking_path(booking.id) do %>
 
-                  <div class="card-my-booking card-no-shadow">
+                  <div class="card-my-booking card-no-shadow" style="filter: grayscale(100%); background-image: url('<%= cl_image_path booking.listing.photos.first.key%>')">
                     <div class="content">
                       <h2 class="title"><%= booking.listing.name %></h2>
                       <p class="card-my-booking-info"><%= booking.listing.description %></p>
@@ -106,12 +104,11 @@
         <% if booking.confirmed == false %>
 
             <div class="card_price-container">
-              <p  class=card-my-booking-price> £ <%= booking.listing.price_per_night %> per night</p>
-              <p  class=card-my-booking-status> Status: <span style="color: #DD3545">Declined</span> </p>
+              <p  class=card-my-booking-price> £ <%= booking.listing.price_per_night %> per night <br>Status: <span style="color: #DD3545">Declined</span> </p>
 
                 <%=link_to booking_path(booking.id) do %>
 
-                  <div class="card-my-booking card-no-shadow">
+                  <div class="card-my-booking card-no-shadow" style="filter: grayscale(100%); background-image: url('<%= cl_image_path booking.listing.photos.first.key%>')">
                     <div class="content">
                       <h2 class="title"><%= booking.listing.name %></h2>
                       <p class="card-my-booking-info"><%= booking.listing.description %></p>
