@@ -6,9 +6,7 @@
 
   <div class="listing-container">
     <div class="primary-image">
-      <% @listing.photos.each do |photo| %>
-  <%= cl_image_tag photo.key %>
-<% end %>
+      <%= cl_image_tag @listing.photos.first.key %>
     </div>
     <div class="listing-info">
       <div class="listing-box">
@@ -33,7 +31,7 @@
           </div>
 
           <div class="lender-image">
-            <%= image_tag "brian", class: "avatar" %>
+            <%= cl_image_tag @listing.user.photo.key, class: "avatar" %>
           </div>
         </div>
       </div>
@@ -104,8 +102,10 @@
 
 <% if current_user.nil? %>
 <%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
-<% else %>
+<% elsif current_user == @listing.user && !current_user.nil?%>
 <%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
 <%= link_to "Back to my listings", my_listings_path , class: "btn btn-primary" %>
+<% else %>
+<%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
 <% end %>
 </div>

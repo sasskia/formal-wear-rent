@@ -7,7 +7,7 @@
 
   <div class="listing-container">
     <div class="primary-image">
-      <%= image_tag "wtlisting", alt: "user_pic" %>
+    <%= cl_image_tag @booking.listing.photos.first.key %>
     </div>
     <div class="listing-info">
       <div class="listing-box">
@@ -33,22 +33,12 @@
           </div>
 
           <div class="lender-image">
-            <%= image_tag "brian", class: "avatar" %>
+
+            <%= cl_image_tag @booking.listing.user.photo.key, class: "avatar" %>
           </div>
         </div>
       </div>
 
     </div>
   </div>
-
-  <div class="reviews-container">
-    <h2>Reviews:</h2>
-  </div>
-
-<% if current_user.nil? %>
-<%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
-<% else %>
-<%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
-<%= link_to "Back to my listings", my_listings_path , class: "btn btn-primary" %>
-<% end %>
 </div>
