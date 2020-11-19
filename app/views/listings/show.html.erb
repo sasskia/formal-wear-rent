@@ -39,10 +39,47 @@
         <% if @listing.user == current_user %>
         <% else %>
           <h1>Make a booking</h1>
+          
+          <% if flash[:errors].present?  %>
+            <% if flash[:errors][:overlaps_with_other].present? %>
+              <p><%= flash[:errors][:overlaps_with_other][0] %></p>
+              <p>hello</p>
+            <% end %>
+          <% end %>
 
           <%= simple_form_for [@listing,@booking] do |f| %>
-            <%= f.input :start_date, as: :date, html5: true %>
-            <%= f.input :end_date, as: :date, html5: true %>
+            <%= f.input :start_date, as: :string, html5: true %>
+
+            <div class="error_message">
+              <% if flash[:errors].present?  %>
+                <% if flash[:errors][:overlaps_with_other].present? %>
+                  <p><%= flash[:errors][:overlaps_with_other][0] %></p>
+                  <p>hello</p>
+                <% end %>
+                <% if flash[:errors]["start_date"].present? %>
+                 <% if flash[:errors]["start_date"][0] == "not available" %>
+                  <p> Start Date <%= flash[:errors]["start_date"][0] %> </p>
+                 <% else %>
+                  <%= flash[:errors]["start_date"][0] %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+
+            <%= f.input :end_date, as: :string, html5: true %>
+
+            <div class="error_message">
+              <% if flash[:errors].present?  %>
+                <% if flash[:errors]["end_date"].present? %>
+                  <% if flash[:errors]["end_date"][0] == "not available" %>
+                    <p> End Date <%= flash[:errors]["end_date"][0] %> </p>
+                  <% else %>
+                    <%= flash[:errors]["end_date"][0] %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+
             <%= f.button :submit, class: "btn btn-success" %>
         <% end %>
       <% end %>
