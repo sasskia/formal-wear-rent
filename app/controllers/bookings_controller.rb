@@ -16,7 +16,6 @@ class BookingsController < ApplicationController
     else
       flash[:errors] = @booking.errors
       redirect_to "/listings/#{@booking.listing.id}"
-      raise
     end
   end
 

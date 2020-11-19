@@ -5,7 +5,6 @@ class Booking < ApplicationRecord
 
   validate :end_date_after_start_date
 
-
   private 
 
   def end_date_after_start_date
