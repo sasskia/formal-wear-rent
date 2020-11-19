@@ -15,7 +15,7 @@
         <p> Size: <%= @listing.size%></p>
         <p> Price per night: £ <%= @listing.price_per_night%></p>
 
-        <% if !current_user.nil? %>
+        <% if !current_user.nil? && @listing.user == current_user%>
         <%= link_to edit_listing_path(@listing) do %>
         <p><i class="fas fa-pen"></i> Edit</p>
         <% end %>
