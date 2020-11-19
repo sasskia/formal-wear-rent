@@ -12,4 +12,6 @@ class Listing < ApplicationRecord
   validates :description, length: { minimum: 10 }
   validates :description, presence: true
   validates :size, presence: true
+
+  searchkick
 end
