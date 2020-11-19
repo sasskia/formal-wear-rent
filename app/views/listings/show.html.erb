@@ -6,7 +6,9 @@
 
   <div class="listing-container">
     <div class="primary-image">
-      <%= image_tag "wtlisting", alt: "user_pic" %>
+      <% @listing.photos.each do |photo| %>
+  <%= cl_image_tag photo.key %>
+<% end %>
     </div>
     <div class="listing-info">
       <div class="listing-box">
