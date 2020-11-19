@@ -118,25 +118,13 @@
   margin: 0 auto;
   display: block;
   text-align: center;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 
   p{
     margin: 0;
   }
 }
 
-.card-my-booking-status {
-  background-color: #ffffff;
-  padding: 5px 10px;
-  border: 1px 1px 1px 0;
-  width: 200px;
-  margin: 0 auto;
-  display: block;
-  text-align: center;
-
-  p{
-    margin: 0;
-  }
-}
 
 @media (hover: hover) and (min-width: $bp-md) {
   .card-my-booking:after {
@@ -200,7 +188,7 @@
 
 .card_price-container {
   margin-right: 20px;
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 
 .owner-information {
@@ -211,6 +199,7 @@
   font-size: 15px;
   border-radius: 0 0 15px 15px;
   padding-bottom: 1px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 #booking-duration {
