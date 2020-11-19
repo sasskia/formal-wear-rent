@@ -16,17 +16,17 @@
 
         <%listing.bookings.each do |booking| %>
           <% if booking.confirmed.nil? %>
-            
+
               <div class="card_price-container">
 
-                <div  class="borrower-info"> 
+                <div  class="borrower-info">
                   <p><%=booking.user.first_name %> <%= booking.user.last_name %> </p>
                   <p><i class="fas fa-graduation-cap"></i> <%=booking.user.university %></p>
                   <p><i class="far fa-envelope"></i> <%=booking.user.email%></p>
                 </div>
 
                 <p class="text-center request_to_borrow">Requests To Borrow</p>
-                
+
                 <%= link_to listing_path(listing.id) do%>
 
                   <div class="card-my-listing card-no-shadow">
@@ -55,7 +55,7 @@
                     Decline
                     <%# pending += 1 %>
                   <% end %>
-                  
+
               </div>
 
           <% end %>
@@ -101,8 +101,8 @@
     <% @listings.each do |listing| %>
         <%listing.bookings.each do |booking| %>
           <% if booking.confirmed == true %>
-            
-            
+
+
             <div class="card_price-container">
 
               <p  class=card-my-listing-price> $ <%= listing.price_per_night %> per night</p>
@@ -131,7 +131,7 @@
               </div>
             </div>
 
-            
+
 
 
           <% end %>
@@ -167,9 +167,8 @@
           <i class="fas fa-pen" id="edit_button"></i>
         <% end %>
 
-        <%= link_to listing_path(listing), method: :delete, data: { confirm: "Delete #{listing.name}?" } do %>
-          <i class="fas fa-trash" id="delete_button"></i>
-        <% end %>
+        <i class="fas fa-trash delete-button" id="delete_button" data-id="<%= listing.id %>"></i>
+        <%= link_to "", listing_path(listing.id), method: :delete, class: "hidden", id: dom_id(listing) %>
 
         <p  class=card-my-listing-price> $ <%= listing.price_per_night %> per night</p>
 
