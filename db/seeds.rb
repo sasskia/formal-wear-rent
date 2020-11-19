@@ -15,17 +15,38 @@ User.destroy_all
 
 
 puts "Creating users"
+userphoto1 = URI.open('https://www.youthareawesome.com/wp-content/uploads/2013/08/male-college-student-backpack.jpeg')
 user1 = User.create(first_name: 'John', last_name: 'Doe', email: 'john@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
-user2 = User.create(first_name: 'Jane', last_name: 'Smith', email: 'jane@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
-user3 = User.create(first_name: 'Josh', last_name: 'Doe', email: 'josh@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
-user4 = User.create(first_name: 'Amanda', last_name: 'Duncan', email: 'amanda@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
-user5 = User.create(first_name: 'Peter', last_name: 'Smith', email: 'peter@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
-user6 = User.create(first_name: 'Emily', last_name: 'Johnson', email: 'emily@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
-user7 = User.create(first_name: 'Sarah', last_name: 'Taylor', email: 'sarah@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
+user1.photo.attach(io: userphoto1, filename: 'user1.png',content_type: 'image/png')
 
+userphoto2 = URI.open('https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-733872.jpg&fm=jpg')
+user2 = User.create(first_name: 'Jane', last_name: 'Smith', email: 'jane@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
+user2.photo.attach(io: userphoto2, filename: 'user.png', content_type: 'image/png')
+
+userphoto3 = URI.open('https://www2.le.ac.uk/offices/accessability/images/students/male%20student%20at%20computer%20-%20square.jpg/image_preview')
+user3 = User.create(first_name: 'Josh', last_name: 'Doe', email: 'josh@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
+user3.photo.attach(io: userphoto3, filename: 'user.png', content_type: 'image/png')
+
+userphoto4 = URI.open('https://i.pinimg.com/originals/97/ed/6b/97ed6b370803649addbf66144c18c194.png')
+user4 = User.create(first_name: 'Amanda', last_name: 'Duncan', email: 'amanda@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
+user4.photo.attach(io: userphoto4, filename: 'user.png', content_type: 'image/png')
+
+userphoto5 = URI.open('https://www.port.ac.uk/-/media/images/component---600x600---inset-content---image-button/promos---inset-content---sort-folder/study-with-us/international-students/male-student-with-glasses-speaking-at-event-600x600.jpg?h=600&la=en&w=600&hash=E0C98E1C77341474D71A1A0A61961D978F257559')
+user5 = User.create(first_name: 'Peter', last_name: 'Smith', email: 'peter@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
+user5.photo.attach(io: userphoto5, filename: 'user.png', content_type: 'image/png')
+
+userphoto6 = URI.open('https://lh3.googleusercontent.com/proxy/D3KL8WDkFWbfxfGhgcDC18uSThrnoOkHE_i4Aj6KUqHgmqUnh6VTby_Ag0iLjKJZgSbxl2paEY-_YqR2pHQl3yzV24zAzSbqcevVKHHUvG4OyMjiZrBRQmtaKk1jX5BYXtGFiQJTFVXT2PhG9e9AmnxHmsinsQ')
+user6 = User.create(first_name: 'Emily', last_name: 'Johnson', email: 'emily@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
+user6.photo.attach(io: userphoto6, filename: 'user.png', content_type: 'image/png')
+
+userphoto7 = URI.open('https://static01.nyt.com/images/2019/11/17/books/review/17Salam/Salam1-superJumbo.jpg')
+user7 = User.create(first_name: 'Sarah', last_name: 'Taylor', email: 'sarah@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', university: 'Cambridge')
+user7.photo.attach(io: userphoto7, filename: 'user.png', content_type: 'image/png')
 
 
 puts "Creating listings"
+
+
 file1 = URI.open('https://d310a9hpolx59w.cloudfront.net/product_photos/77277788/file_09464f7ebc_original.jpg')
 item1 = Listing.create(name: 'Black dress', category: 'dress', gender: 'women', description: 'Beautiful and very classic black dress.', size: '10', price_per_night: 20, user_id: user2.id)
 item1.photos.attach(io: file1, filename: 'blackdress.png', content_type: 'image/png')
