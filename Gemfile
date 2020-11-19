@@ -28,7 +28,6 @@ gem 'devise'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'simple_form'
-gem 'searchkick', '~> 4.0'
 
 #cloudinary for image hosting
 gem 'cloudinary', '~> 1.16.0'
