@@ -51,6 +51,7 @@
                   <%= link_to booking_confirm_path(booking.id), method: :patch, data: { confirm: 'Are you sure you want to accept?'}, class: "btn btn-success" do %>
                     Confirm
                   <% end %>
+
                   <%= link_to booking_decline_path(booking.id), method: :patch, data: { confirm: 'Are you sure you want to decline?'}, class: "btn btn-danger" do %>
                     Decline
                     <%# pending += 1 %>

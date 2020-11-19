@@ -8,21 +8,21 @@ class ListingsController < ApplicationController
     elsif params.has_key?(:category)
       @search = params[:category]
       @listings = Listing.where(category: params[:category])
-    elsif params.has_key?("search") && !params["search"]["name"].strip.empty?
-      @search = params["search"]["name"].capitalize
-      listings = Listing.search(params["search"]["name"])
-      @listings = []
-        listings.each do |listing|
-          confirmed_date_ranges = listing.bookings.map { |b| (b.start_date..b.end_date) }
-          user_date_range = (params["search"]["start_date"].to_date..params["search"]["end_date"].to_date)
-          array = []
-          confirmed_date_ranges.each do |range|
-            if range.overlaps?(user_date_range)
-              array.push(1)
-            end
-          end
-          @listings.push(listing) if array.empty?
-        end
+    # elsif params.has_key?("search") && !params["search"]["name"].strip.empty?
+    #   @search = params["search"]["name"].capitalize
+    #   listings = Listing.search(params["search"]["name"])
+    #   @listings = []
+    #     listings.each do |listing|
+    #       confirmed_date_ranges = listing.bookings.map { |b| (b.start_date..b.end_date) }
+    #       user_date_range = (params["search"]["start_date"].to_date..params["search"]["end_date"].to_date)
+    #       array = []
+    #       confirmed_date_ranges.each do |range|
+    #         if range.overlaps?(user_date_range)
+    #           array.push(1)
+    #         end
+    #       end
+    #       @listings.push(listing) if array.empty?
+    #     end
     else
       @listings = Listing.all
     end

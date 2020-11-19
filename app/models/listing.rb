@@ -13,6 +13,6 @@ class Listing < ApplicationRecord
   validates :description, presence: true
   validates :size, presence: true
 
-  searchkick
+
 
 end
