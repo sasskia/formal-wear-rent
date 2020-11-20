@@ -77,6 +77,16 @@
 .reviews-container {
   margin-top: 20px;
   margin-left: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-color: white;
+
+  h2{
+    border-bottom: 1px solid black;
+    width: 151px;
+    margin-bottom: 27px;
+  }
 }
 
 .error_message {
