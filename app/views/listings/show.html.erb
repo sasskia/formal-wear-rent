@@ -9,7 +9,7 @@
     <%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
     <%= link_to "Back to my listings", my_listings_path , class: "btn btn-primary" %>
   <% else %>
-    <%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
+    <%= link_to "See all listings", listings_path , class: "btn btn-primary see-all-listings" %>
   <% end %>
 
   <div class="listing-container">
@@ -20,8 +20,8 @@
         <div class="item-info">
           <h2><%= @listing.name %></h2>
           <h5><%= @listing.description%></h5>
-          <p> Size: <%= @listing.size%></p>
-          <p> Price per night: £ <%= @listing.price_per_night%></p>
+          <p class="size_price"> Size: <%= @listing.size%></p>
+          <p class="size_price"> Price per night: £ <%= @listing.price_per_night%></p>
 
           <% if !current_user.nil? && @listing.user == current_user%>
           <%= link_to edit_listing_path(@listing) do %>
