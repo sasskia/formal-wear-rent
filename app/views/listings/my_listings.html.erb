@@ -43,13 +43,11 @@
 
                 </div>
                   <div class= "confirmation-buttons">
-                    <%= link_to booking_confirm_path(booking.id), method: :patch, data: { confirm: 'Are you sure you want to accept?'}, class: "btn btn-success confirm-button" do %>
-                      Confirm
-                    <% end %>
+                    <%= link_to "", booking_confirm_path(booking.id), method: :patch, class: "hidden confirm-button"%>
+                    <a href="" class="btn btn-success fake-confirm-button">Confirm</a>
 
-                    <%= link_to booking_decline_path(booking.id), method: :patch, data: { confirm: 'Are you sure you want to decline?'}, class: "btn btn-danger" do %>
-                      Decline
-                    <% end %>
+                    <%= link_to "", booking_decline_path(booking.id), method: :patch, class: "hidden decline-button"%>
+                    <a href="" class="btn btn-danger fake-decline-button">Decline</a>
                   </div>
               </div>
           <% end %>
