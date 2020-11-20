@@ -54,6 +54,10 @@
         <%# end %>
       </div>
 
+
+
+
+
   <div class="title-bookings pt-3">
     <h2>Pending Bookings</h2>
   </div>
@@ -95,6 +99,8 @@
         <!--<p>No Listings Requests</p> -->
       <%# end %>
     </div>
+
+
 
 
 
@@ -152,7 +158,7 @@
 
                     <%=link_to booking_path(booking.id) do %>
 
-                      <div class="card-my-booking card-no-shadow">
+                      <div class="card-my-booking card-no-shadow" style="filter: grayscale(100%); background-image: url('<%= cl_image_path booking.listing.photos.first.key%>')">
                         <div class="content">
                           <h2 class="title"><%= booking.listing.name %></h2>
                           <p class="card-my-booking-info"><%= booking.listing.description %></p>
