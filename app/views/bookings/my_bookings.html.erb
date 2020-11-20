@@ -169,7 +169,9 @@
 
                     <div class="owner-information">
                       <div id="booking-duration" class="pt-3">
-                        <%= link_to 'Add a review', new_listing_review_path(booking.listing.id), class:"btn btn-primary" %>
+                        <%= link_to new_listing_review_path(booking.listing.id), class:"btn btn-primary" do %>
+                        <p><i class="fas fa-star"></i> Add a review</p>
+                        <% end %>
                       </div>
     <!--                   <p><i class="fas fa-user"></i> <%= booking.listing.user.first_name %> <%= booking.listing.user.last_name %> </p>
                       <p><i class="fas fa-graduation-cap"></i> <%=booking.listing.user.university %></p>
