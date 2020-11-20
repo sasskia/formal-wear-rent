@@ -8,10 +8,11 @@
 require "open-uri"
 
 puts "Cleaning database"
-
+Review.destroy_all
 Booking.destroy_all
 Listing.destroy_all
 User.destroy_all
+
 
 
 puts "Creating users"

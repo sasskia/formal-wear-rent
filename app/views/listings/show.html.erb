@@ -109,16 +109,16 @@
     <div class="reviews-container">
       <h2>Reviews:</h2>
       <p>
-        
+
         <% if @reviews.empty?  %>
           <p> No Reviews Yet <i class="far fa-frown"></i> </p>
-        <% else %> 
-          
+        <% else %>
+
           <% @reviews.each do |review| %>
             <strong><%=review.user.first_name%> <%=review.user.last_name%></strong> gives <%= '⭐️' * review.rating %>, says <i>"<%= review.content %>"</i>
             </p>
           <% end %>
-      
+
         <% end %>
     </div>
 </div>
