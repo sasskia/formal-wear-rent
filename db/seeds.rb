@@ -52,7 +52,7 @@ item1 = Listing.create!(name: 'Black dress', category: 'dress', gender: 'women',
 item1.photos.attach(io: file1, filename: 'blackdress.png', content_type: 'image/png')
 
 file2 = URI.open('https://imageuk.millybridal.org/22924/b22924.jpg?v=190330')
-item2 = Listing.create!(name: 'Silver gown', category: 'gown', gender: 'women', description: 'Very shiny and very elegant gown.', size: 'M', price_per_night: 50, user_id: user2.id)
+item2 = Listing.create!(name: 'Silver gown', category: 'gown', gender: 'women', description: 'Very shiny and very elegant gown.', size: 'M', price_per_night: 30, user_id: user5.id)
 item2.photos.attach(io: file2, filename: 'silvergown.png', content_type: 'image/png')
 
 file3 = URI.open('https://bespokedailyshop.com/wp-content/uploads/2020/03/Kingsbury-Sky-Blue-Slim-Fit-Tuxedo-1.jpg')
@@ -90,3 +90,5 @@ booking2 = Booking.create!(user_id: user4.id, listing_id: item4.id, start_date: 
 booking3 = Booking.create!(user_id: user4.id, listing_id: item3.id, start_date: Time.current.next_month + 100000, end_date: Time.current.next_month + 600000)
 booking4 = Booking.create!(user_id: user1.id, listing_id: item9.id, start_date: Time.current.next_month + 100000, end_date: Time.current.next_month + 600000)
 booking5 = Booking.create!(user_id: user1.id, listing_id: item5.id, start_date: Time.now.beginning_of_month - 3.day, end_date: Time.now.beginning_of_month - 1.day)
+booking6 = Booking.create!(user_id: user2.id, listing_id: item2.id, start_date: Time.now.beginning_of_month - 3.day, end_date: Time.now.beginning_of_month - 1.day)
+
