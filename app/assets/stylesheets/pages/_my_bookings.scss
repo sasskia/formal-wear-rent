@@ -221,3 +221,21 @@
   box-shadow: none !important;
 }
 
+.owner-information {
+  .btn-primary{
+    background: #64b450;
+    border:#64b450;
+    border-radius: 5px;
+    color: white;
+
+  }
+}
+
+.owner-information {
+  .btn-primary:hover{
+    background: #549943;
+    border:#549943;
+
+  }
+}
+
