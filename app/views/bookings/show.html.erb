@@ -11,8 +11,10 @@
     </div>
     <div class="listing-info">
       <div class="listing-box">
+        <div class="listing-info pt-3" style="text-align:center;">
         <h2><%= @booking.listing.name %></h2>
-        <p>From <%= @booking.start_date %> to <%= @booking.end_date %></p>
+        <p><strong>When ?</strong> <i class="far fa-calendar-alt"></i> <%= @booking.start_date %> - <i class="far fa-calendar-alt"></i> <%= @booking.end_date %></p>
+
           <% if @booking.confirmed.nil? %>
             <p>Status: Pending</p>
           <% elsif @booking.confirmed == true %>
@@ -21,24 +23,27 @@
             <p>Status: Declined</p>
           <% end %>
         <p><strong>Total price: £ <%= @total_price %></strong></p>
-
         <br>
-
+      </div>
+        <div class="border-top pt-5">
         <h3 style="font-weight: bold; text-align: center;">Lender details:</h3>
+        </div>
         <div class="lender-info">
-          <div class="lender-text">
-            <p><%= @booking.listing.user.first_name %> <%= @booking.listing.user.last_name %></p>
-            <p>Email: <%= @booking.listing.user.email %></p>
-            <p>University: <%= @booking.listing.user.university %></p>
-          </div>
-
           <div class="lender-image">
-
-            <%= cl_image_tag @booking.listing.user.photo.key, crop: :fill, gravity: :face, class: "avatar" %>
+            <%= cl_image_tag @booking.listing.user.photo.key, crop: :fill, gravity: :face, class: "avatar"%>
           </div>
+
+          <div class="lender-text">
+            <p><i class="fas fa-user"></i> <%=@booking.listing.user.first_name%> <%=@booking.listing.user.last_name %></p>
+            <p><i class="fas fa-graduation-cap"></i> <%= @booking.listing.user.university %></p>
+            <p><i class="fas fa-at"></i> Email: <%= @booking.listing.user.email %></p>
+          </div>
+
+
         </div>
       </div>
 
     </div>
   </div>
 </div>
+
