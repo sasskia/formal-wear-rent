@@ -283,13 +283,15 @@
 
 .borrower-info{
   background-color: #ffffff;
-  padding: 10px;
-  border-radius: 10px;
+
+  border-radius: 15px 15px 0 0;
   border: 1px 1px 1px 0;
   width: 200px;
   margin: 0 auto;
   display: block;
   text-align: center;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  padding-bottom: 1px;
 
   p{
     margin: 0;
@@ -317,4 +319,10 @@
   font-size: 13px;
   border-radius: 15px;
   padding-bottom: 1px;
+}
+
+.confirmation-buttons{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 25px;
 }
