@@ -16,7 +16,7 @@
           <%= f.input :content, as: :text, input_html: { class: 'form-control' }, placeholder: 'This was amazing!' %>
         </div>
         <div class="form-group new-listing-form-item">
-          <%= f.input :rating, input_html: { class: 'form-control' }, label: 'Out of 5' ,placeholder: '4' %>
+          <%= f.input :rating, input_html: { min: 1, max: 5, class: 'form-control' }, label: 'Out of 5' ,placeholder: '4' %>
         </div>
         <div class="form-group new-listing-form-item">
           <%= f.button :submit, class: "btn btn-primary", id: "create-listing" %>
