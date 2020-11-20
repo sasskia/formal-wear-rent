@@ -3,42 +3,52 @@
  <% end %>
 
 <div class="container">
+  <% if current_user.nil? %>
+    <%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
+  <% elsif current_user == @listing.user && !current_user.nil?%>
+    <%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
+    <%= link_to "Back to my listings", my_listings_path , class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
+  <% end %>
 
   <div class="listing-container">
     <div class="primary-image">
       <%= cl_image_tag @listing.photos.first.key %>
     </div>
-    <div class="listing-info">
       <div class="listing-box">
-        <h2><%= @listing.name %></h2>
-        <h3><%= @listing.description%></h3>
-        <p> Size: <%= @listing.size%></p>
-        <p> Price per night: £ <%= @listing.price_per_night%></p>
+        <div class="item-info">
+          <h2><%= @listing.name %></h2>
+          <h3><%= @listing.description%></h3>
+          <p> Size: <%= @listing.size%></p>
+          <p> Price per night: £ <%= @listing.price_per_night%></p>
 
-        <% if !current_user.nil? && @listing.user == current_user%>
-        <%= link_to edit_listing_path(@listing) do %>
-        <p><i class="fas fa-pen"></i> Edit</p>
-        <% end %>
-        <% end %>
+          <% if !current_user.nil? && @listing.user == current_user%>
+          <%= link_to edit_listing_path(@listing) do %>
+          <p><i class="fas fa-pen"></i> Edit</p>
+          <% end %>
+          <% end %>
+        </div>
+
 
         <br>
 
         <h3 style="font-weight: bold; text-align: center;">Lender details:</h3>
         <div class="lender-info">
-          <div class="lender-text">
-            <p>Name: <%=@listing.user.first_name%> <%=@listing.user.last_name %></p>
-            <p>University: <%= @listing.user.university %></p>
-          </div>
-
           <div class="lender-image">
             <%= cl_image_tag @listing.user.photo.key, class: "avatar" %>
           </div>
+          <div class="lender-text">
+            <p><i class="fas fa-user"></i> <%=@listing.user.first_name%> <%=@listing.user.last_name %></p>
+            <p><i class="fas fa-graduation-cap"></i> <%= @listing.user.university %></p>
+          </div>
+
         </div>
       </div>
       <div class="form">
         <% if @listing.user == current_user %>
         <% else %>
-          <h1>Make a booking</h1>
+          <h2>Make a booking</h2>
 
           <% if flash[:errors].present?  %>
             <% if flash[:errors][:overlaps_with_other].present? %>
@@ -83,11 +93,10 @@
                 <% end %>
               </div>
 
-              <%= f.button :submit, class: "btn btn-success" %>
+              <%= f.button :submit, class: "btn btn-success btn-lg justify-content-center" %>
            <% end %>
         <% end %>
       <% end %>
-    </div>
     </div>
   </div>
 
@@ -99,13 +108,4 @@
       </p>
       <% end unless @reviews.nil? %>
   </div>
-
-<% if current_user.nil? %>
-<%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
-<% elsif current_user == @listing.user && !current_user.nil?%>
-<%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
-<%= link_to "Back to my listings", my_listings_path , class: "btn btn-primary" %>
-<% else %>
-<%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
-<% end %>
 </div>
