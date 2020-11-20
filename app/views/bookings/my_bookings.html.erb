@@ -15,7 +15,7 @@
     <div class="title-bookings pt-3">
       <h2>Upcoming Bookings</h2>
     </div>
-    <div class="my-bookings-container">
+    <div class="my-rentings-container">
         <% @bookings.each do |booking| %>
           <% if !booking.start_date.past? && booking.confirmed == true %>
 
