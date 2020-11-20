@@ -143,6 +143,10 @@
     }
   }
 
+  .card-my-booking:hover {
+    filter: none !important;
+  }
+
   .card-my-booking:hover,
   .card-my-booking:focus-within {
     align-items: center;
@@ -205,7 +209,7 @@
 #booking-duration {
   width: 200px;
   margin: 0px auto;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 
   p {
     margin: 0;
