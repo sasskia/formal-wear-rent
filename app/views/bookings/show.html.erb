@@ -34,7 +34,7 @@
 
           <div class="lender-image">
 
-            <%= cl_image_tag @booking.listing.user.photo.key, class: "avatar" %>
+            <%= cl_image_tag @booking.listing.user.photo.key, crop: :fill, gravity: :face, class: "avatar" %>
           </div>
         </div>
       </div>
