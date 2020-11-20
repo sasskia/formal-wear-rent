@@ -13,6 +13,7 @@ import { initSweetalert } from '../plugins/init_sweetalert';
 // import "../plugins/flatpickr"
 
 import flatpickr from "flatpickr";
+import Swal from 'sweetalert2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
@@ -57,6 +58,42 @@ document.addEventListener('turbolinks:load', () => {
       link.click();
     }
   });
+
+  const fakeConfirmButton = document.querySelector('.fake-confirm-button');
+  const confirmButton = document.querySelector('.confirm-button');
+  const fakeDeclineButton = document.querySelector('.fake-decline-button');
+  const declineButton = document.querySelector('.decline-button');
+
+  if (fakeConfirmButton) {
+    fakeConfirmButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      Swal.fire({
+        title: 'Are you sure you want to confirm?',
+        showCancelButton: true,
+        confirmButtonText: `Yes`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          confirmButton.click();
+        }
+      })
+    });
+
+    fakeDeclineButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      Swal.fire({
+        title: 'Are you sure you want to decline?',
+        showCancelButton: true,
+        confirmButtonText: `Yes`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          declineButton.click();
+        }
+      })
+    });
+  }
+
 });
 
 
@@ -66,3 +103,5 @@ document.addEventListener('turbolinks:load', () => {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import "controllers"
