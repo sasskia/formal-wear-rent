@@ -326,3 +326,51 @@
   justify-content: space-between;
   padding: 10px 25px;
 }
+
+.confirmed-booking-bottom{
+  text-align: center;
+  padding: 10px;
+}
+
+.confirmed-booking-bottom{
+  p {
+    background: #64b450;
+    border-radius: 5px;
+    padding: 5px;
+    width: 200px;
+    margin-left: 10px;
+    color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+.btn-success{
+    background: #64b450;
+    border:#64b450;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.btn-success:hover{
+    background: #549943;
+    border:#549943;
+
+}
+
+.btn-danger{
+    background: #b45050;
+    border:#b45050;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.btn-danger:hover{
+    background: #914040;
+    border:#914040;
+
+}

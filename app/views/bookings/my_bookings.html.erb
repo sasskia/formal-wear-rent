@@ -154,7 +154,7 @@
             <% if booking.start_date.past? %>
 
                 <div class="card_price-container">
-                  <p  class=card-my-booking-price> Total Cost: £ <%= booking.listing.price_per_night * ((booking.start_date..booking.end_date).count) %> </p>
+                  <p  class=card-my-booking-price> Start: <i class="far fa-calendar-alt"></i> <%= booking.start_date %> <br>End: <i class="far fa-calendar-alt"></i> <%= booking.end_date %></p>
 
                     <%=link_to booking_path(booking.id) do %>
 
@@ -169,15 +169,12 @@
 
                     <div class="owner-information">
                       <div id="booking-duration" class="pt-3">
-                        <p>Start: <i class="far fa-calendar-alt"></i> <%= booking.start_date %> </p>
-                        <p>End: <i class="far fa-calendar-alt"></i> <%= booking.end_date %></p>
+                        <%= link_to 'Add a review', new_listing_review_path(booking.listing.id), class:"btn btn-primary" %>
                       </div>
     <!--                   <p><i class="fas fa-user"></i> <%= booking.listing.user.first_name %> <%= booking.listing.user.last_name %> </p>
                       <p><i class="fas fa-graduation-cap"></i> <%=booking.listing.user.university %></p>
                       <p><i class="far fa-envelope"></i> <%=booking.listing.user.email%></p> -->
                     </div>
-
-                    <%= link_to 'Add a review', new_listing_review_path(booking.listing.id), class:"btn btn-primary" %>
 
                   </div>
                 <% end %>

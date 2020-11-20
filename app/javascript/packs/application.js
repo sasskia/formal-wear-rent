@@ -10,11 +10,41 @@ require("channels")
 import 'bootstrap';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initSweetalert } from '../plugins/init_sweetalert';
+// import "../plugins/flatpickr"
+
+import flatpickr from "flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
-  // flatpickr(".date_form");
+  flatpickr(".datepicker", {});
+
+  // First we define two variables that are going to grab our inputs field. You can check the ids of the inputs with the Chrome inspector.
+  const startDateInput = document.getElementById('booking_start_date');
+  const endDateInput = document.getElementById('booking_end_date');
+
+  // Check that the query selector id matches the one you put around your form.
+  if (startDateInput) {
+  const unavailableDates = JSON.parse(document.querySelector('#listing-booking-dates').dataset.unavailable)
+  endDateInput.disabled = true
+
+  flatpickr(startDateInput, {
+    minDate: "today",
+    disable: unavailableDates,
+    dateFormat: "Y-m-d",
+  });
+
+  startDateInput.addEventListener("change", (e) => {
+    if (startDateInput != "") {
+      endDateInput.disabled = false
+    }
+    flatpickr(endDateInput, {
+      minDate: e.target.value,
+      disable: unavailableDates,
+      dateFormat: "Y-m-d"
+      });
+    })
+  };
 
   initSweetalert('.delete-button', {
     title: "Are you sure?",
