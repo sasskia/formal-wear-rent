@@ -23,16 +23,17 @@
 }
 
 .primary-image img {
-  width: 500px;
+  width: 450px;
   height: 500px;
+  padding-right: 25px;
   object-fit: cover;
   border-radius: 15px;
 }
 
 .listing-box {
   margin-top: 20px;
-  height: 400px;
-  width: 650px;
+  width: 350px;
+  height: 500px;
   padding: 15px;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
   background-color: #fff;
