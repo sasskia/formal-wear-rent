@@ -1,6 +1,6 @@
 <% content_for :navbar do %>
-      <%= render 'shared/navbar_white' %>
- <% end %>
+    <%= render 'shared/navbar_white' %>
+<% end %>
 
 <div class="container">
   <% if current_user.nil? %>
@@ -16,7 +16,7 @@
     <div class="primary-image">
       <%= cl_image_tag @listing.photos.first.key %>
     </div>
-      <div class="listing-box">
+    <div class="listing-box">
         <div class="item-info">
           <h2><%= @listing.name %></h2>
           <h3><%= @listing.description%></h3>
@@ -45,9 +45,11 @@
 
         </div>
       </div>
-      <div class="form">
-        <% if @listing.user == current_user %>
-        <% else %>
+      <% if @listing.user == current_user %>
+        <div class="form-empty">
+        </div>
+      <% else %>
+        <div class="form">
           <h2>Make a booking</h2>
 
           <% if flash[:errors].present?  %>
@@ -94,18 +96,20 @@
               </div>
 
               <%= f.button :submit, class: "btn btn-success btn-lg justify-content-center" %>
-           <% end %>
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
-  </div>
 
-  <div class="reviews-container">
-    <h2>Reviews:</h2>
-    <p>
-      <% @reviews.each do |review| %>
-        <strong><%=review.user.first_name%> <%=review.user.last_name%></strong> gives <%= '⭐️' * review.rating %>, says <i>"<%= review.content %>"</i>
-      </p>
-      <% end unless @reviews.nil? %>
+
+    <div class="reviews-container">
+      <h2>Reviews:</h2>
+      <p>
+        <% @reviews.each do |review| %>
+          <strong><%=review.user.first_name%> <%=review.user.last_name%></strong> gives <%= '⭐️' * review.rating %>, says <i>"<%= review.content %>"</i>
+          </p>
+        <% end unless @reviews.nil? %>
+      </div>
   </div>
 </div>
