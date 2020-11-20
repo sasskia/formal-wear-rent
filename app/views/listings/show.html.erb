@@ -35,14 +35,14 @@
 
         <h3 style="font-weight: bold; text-align: center;">Lender details:</h3>
         <div class="lender-info">
+          <div class="lender-image">
+            <%= cl_image_tag @listing.user.photo.key, class: "avatar" %>
+          </div>
           <div class="lender-text">
             <p><i class="fas fa-user"></i> <%=@listing.user.first_name%> <%=@listing.user.last_name %></p>
             <p><i class="fas fa-graduation-cap"></i> <%= @listing.user.university %></p>
           </div>
 
-          <div class="lender-image">
-            <%= cl_image_tag @listing.user.photo.key, class: "avatar" %>
-          </div>
         </div>
       </div>
       <div class="form">
@@ -93,7 +93,7 @@
                 <% end %>
               </div>
 
-              <%= f.button :submit, class: "btn btn-success" %>
+              <%= f.button :submit, class: "btn btn-success btn-lg justify-content-center" %>
            <% end %>
         <% end %>
       <% end %>
