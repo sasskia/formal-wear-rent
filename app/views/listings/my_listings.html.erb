@@ -64,22 +64,48 @@
 <%# CONFIRMED BOOKINGS %>
 
 
-
 <div class="title-bookings pt-3">
-  <h2>My confirmed booking requests</h2>
+  <h2 class="mb-4">My confirmed booking requests</h2>
 </div>
 
-  <% @listings.each do |listing| %>
-    <%listing.bookings.each do |booking| %>
-      <% if booking.confirmed == true %>
-        <p><%=booking.listing.name %></p>
-        <p><%=booking.start_date%> - <%=booking.end_date %></p>
-        <p><%=booking.user.first_name %> <%= booking.user.last_name %> @ <%=booking.user.university %></p>
-        <p>Contact: <%=booking.user.email%></p>
-      <% end %>
-    <% end %>
-  <% end %>
+    <div class="my-rentings-container">
+      <% @listings.each do |listing| %>
 
+        <%listing.bookings.each do |booking| %>
+          <% if booking.confirmed == true %>
+
+              <div class="card_price-container">
+                <div  class="borrower-info">
+                  <p><%=booking.user.first_name %> <%= booking.user.last_name %> </p>
+                  <p><i class="fas fa-graduation-cap"></i> <%=booking.user.university %></p>
+                  <p><i class="far fa-envelope"></i> <%=booking.user.email%></p>
+                </div>
+
+                <%= link_to listing_path(listing.id) do%>
+
+                  <div class="card-my-booking card-no-shadow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path listing.photos.first.key%>')">
+                    <div class="content">
+                      <h2 class="title"><%= listing.name %></h2>
+                      <p class="card-my-listing-info"><%= listing.description %></p>
+                      <p class="card-my-listing-info"><%= listing.category %></p>
+                    </div>
+                  </div>
+
+                <% end %>
+
+                <div class="owner-information">
+                    <div id="booking-duration" class="pt-3">
+                      <p>Start: <i class="far fa-calendar-alt"></i> <%= booking.start_date %> </p>
+                      <p>End: <i class="far fa-calendar-alt"></i> <%= booking.end_date %></p>
+                    </div>
+
+                </div>
+              </div>
+
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
 
 <%# MY LISTINGS %>
 
