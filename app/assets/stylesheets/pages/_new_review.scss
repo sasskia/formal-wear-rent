@@ -1,0 +1,39 @@
+
+
+.new-review-content{
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #000000;
+  background-image: linear-gradient(129deg, #252525 28%, #ffffff 80%);
+  background-size: cover;
+  min-width: 1200px;
+  display: flex;
+  justify-content: center;
+  // box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12);
+}
+
+.new-review-form{
+  color: white;
+  display: flex;
+  font-size: 18px;
+  margin: 50px;
+}
+
+
+.review_content, .review_rating {
+  min-width: 700px !important;
+}
+
+
+#create-review{
+  color: white;
+  background-color: black;
+  transition: 0.3s;
+  border-radius: 15px;
+  border: none;
+}
+
+#create-review:hover{
+  color: black;
+  background-color: white;
+}
