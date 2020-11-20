@@ -36,7 +36,7 @@
         <h5 style="font-weight: bold; text-align: center;">Lender details:</h5>
         <div class="lender-info">
           <div class="lender-image">
-            <%= cl_image_tag @listing.user.photo.key, class: "avatar" %>
+            <%= cl_image_tag @listing.user.photo.key, crop: :fill, gravity: :face, class: "avatar" %>
           </div>
           <div class="lender-text">
             <p><i class="fas fa-user"></i> <%=@listing.user.first_name%> <%=@listing.user.last_name %></p>
