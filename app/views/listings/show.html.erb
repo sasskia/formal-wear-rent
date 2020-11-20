@@ -19,24 +19,23 @@
       <%= cl_image_tag @listing.photos.first.key %>
     </div>
     <div class="listing-box-show-page">
-        <div class="item-info">
-          <h2><%= @listing.name %></h2>
-          <h5><%= @listing.description%></h5>
-          <p class="size_price"> Size: <%= @listing.size%></p>
-          <p class="size_price"> Price per night: £ <%= @listing.price_per_night%></p>
 
+        <div class="item-info pb-3" style="position:relative; border: none !important;">
           <% if !current_user.nil? && @listing.user == current_user%>
           <%= link_to edit_listing_path(@listing) do %>
-          <p id="show-edit"><i class="fas fa-pen"></i> Edit</p>
+            <p id="show-edit" style="position: absolute; top: 2px; right: 2px;"><i class="fas fa-pen"></i></p>
           <% end %>
           <% end %>
+          <h2><%= @listing.name %></h2>
+            <div class="border-bottom" style="display:flex; justify-content: center;">
+            <p class="mr-4"> <strong><i class="fas fa-ruler"></i></strong> Size: <%= @listing.size%></p>
+            <p class="ml-4 pb-2"><strong>£ <%= @listing.price_per_night%></strong> / night</p>
+          </div>
+          <p class="pt-3"><%= @listing.description%></p>
         </div>
+        <h5 class="border-top pt-3" style="font-weight: bold; text-align: center;">Lender details:</h5>
+        <div class="lender-info ">
 
-
-        <br>
-
-        <h5 style="font-weight: bold; text-align: center;">Lender details:</h5>
-        <div class="lender-info">
           <div class="lender-image">
             <%= cl_image_tag @listing.user.photo.key, width: 150, height: 150, crop: :fill, gravity: :face, class: "avatar" %>
           </div>
