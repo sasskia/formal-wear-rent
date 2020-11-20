@@ -26,7 +26,8 @@
         </div>
         <div class="lender-info">
           <div class="lender-image">
-            <%= cl_image_tag @booking.listing.user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar" %>
+            <%= cl_image_tag @booking.listing.user.photo.key, width: 150, height: 150, crop: :fill, gravity: :face, class: "avatar" %>
+
           </div>
 
           <div class="lender-text">
