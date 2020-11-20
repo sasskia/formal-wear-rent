@@ -10,8 +10,8 @@
     <div class="search-container">
     <%= simple_form_for :search, url: listings_path, method: "GET", html: { class: 'search-form-control form-inline mt0' } do |f| %>
       <%= f.input :name, label_html: {class: "label"}, input_html: {value: "", class: 'form-control string required mr-sm-2 mt0', placeholder: "White Tie" }  %>
-      <%= f.input :start_date, as: :date, html5: true, label_html: {class: "label"}, input_html: {value: "", class: 'form-control mr-sm-2' }%>
-      <%= f.input :end_date, as: :date, html5: true, label_html: {class: "label"}, input_html: {value: "", class: 'form-control mr-sm-2' } %>
+      <%= f.input :start_date, label_html: {class: "label"}, input_html: {value: "", placeholder: "2020-11-20", class: 'form-control mr-sm-2 datepicker', style:"background-color: white" }%>
+      <%= f.input :end_date, label_html: {class: "label"}, input_html: {value: "", placeholder: "2020-11-21", class: 'form-control mr-sm-2 datepicker', style:"background-color: white" } %>
       <%= f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
     <% end %>
     </div>
@@ -32,8 +32,8 @@
     <div class="search-container">
       <%= simple_form_for :search, url: listings_path, method: "GET", html: { class: 'search-form-control form-inline mt0' } do |f| %>
         <%= f.input :name, label_html: {class: "label"}, input_html: {value: "", class: 'form-control string required mr-sm-2 mt0', placeholder: "White Tie" }  %>
-        <%= f.input :start_date, as: :date, html5: true, label_html: {class: "label"}, input_html: {value: "", class: 'form-control mr-sm-2' }%>
-        <%= f.input :end_date, as: :date, html5: true, label_html: {class: "label"}, input_html: {value: "", class: 'form-control mr-sm-2' } %>
+        <%= f.input :start_date, label_html: {class: "label"}, input_html: {value: "", placeholder: "2020-11-20", class: 'form-control mr-sm-2 datepicker', style:"background-color: white" }%>
+        <%= f.input :end_date, label_html: {class: "label"}, input_html: {value: "", placeholder: "2020-11-21", class: 'form-control mr-sm-2 datepicker', style:"background-color: white" } %>
         <%= f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
       <% end %>
     </div>
@@ -42,7 +42,7 @@
       <p class="navbar-name pr-4 pt-2" style="color: black; font-size: 20px;"><%=current_user.first_name %></p>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
-          <%= cl_image_tag current_user.photo.key , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= cl_image_tag current_user.photo.key , height: 70, width: 70, crop: :fill, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Add a listing", new_listing_path, class: "dropdown-item" %>
             <%= link_to "My Bookings", my_bookings_path, class: "dropdown-item" %>

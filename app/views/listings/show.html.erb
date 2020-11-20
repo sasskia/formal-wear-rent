@@ -1,6 +1,6 @@
 <% content_for :navbar do %>
-      <%= render 'shared/navbar_white' %>
- <% end %>
+    <%= render 'shared/navbar_white' %>
+<% end %>
 
 <div class="container">
   <% if current_user.nil? %>
@@ -9,23 +9,23 @@
     <%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
     <%= link_to "Back to my listings", my_listings_path , class: "btn btn-primary" %>
   <% else %>
-    <%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
+    <%= link_to "See all listings", listings_path , class: "btn btn-primary see-all-listings" %>
   <% end %>
 
   <div class="listing-container">
     <div class="primary-image">
       <%= cl_image_tag @listing.photos.first.key %>
     </div>
-      <div class="listing-box">
+    <div class="listing-box">
         <div class="item-info">
           <h2><%= @listing.name %></h2>
-          <h3><%= @listing.description%></h3>
-          <p> Size: <%= @listing.size%></p>
-          <p> Price per night: £ <%= @listing.price_per_night%></p>
+          <h5><%= @listing.description%></h5>
+          <p class="size_price"> Size: <%= @listing.size%></p>
+          <p class="size_price"> Price per night: £ <%= @listing.price_per_night%></p>
 
           <% if !current_user.nil? && @listing.user == current_user%>
           <%= link_to edit_listing_path(@listing) do %>
-          <p><i class="fas fa-pen"></i> Edit</p>
+          <p id="show-edit"><i class="fas fa-pen"></i> Edit</p>
           <% end %>
           <% end %>
         </div>
@@ -33,10 +33,10 @@
 
         <br>
 
-        <h3 style="font-weight: bold; text-align: center;">Lender details:</h3>
+        <h5 style="font-weight: bold; text-align: center;">Lender details:</h5>
         <div class="lender-info">
           <div class="lender-image">
-            <%= cl_image_tag @listing.user.photo.key, class: "avatar" %>
+            <%= cl_image_tag @listing.user.photo.key, crop: :fill, gravity: :face, class: "avatar" %>
           </div>
           <div class="lender-text">
             <p><i class="fas fa-user"></i> <%=@listing.user.first_name%> <%=@listing.user.last_name %></p>
@@ -45,9 +45,11 @@
 
         </div>
       </div>
-      <div class="form">
-        <% if @listing.user == current_user %>
-        <% else %>
+      <% if @listing.user == current_user %>
+        <div class="form-empty">
+        </div>
+      <% else %>
+        <div class="form">
           <h2>Make a booking</h2>
 
           <% if flash[:errors].present?  %>
@@ -94,20 +96,21 @@
                   <% end %>
                 </div>
 
-                <%= f.button :submit, class: "btn btn-success btn-lg justify-content-center" %>
-              <% end %>
-            </div>
+              <%= f.button :submit, class: "btn btn-success btn-lg justify-content-center" %>
+            <% end %>
           <% end %>
         <% end %>
       </div>
-  </div>
+    </div>
 
-  <div class="reviews-container">
-    <h2>Reviews:</h2>
-    <p>
-      <% @reviews.each do |review| %>
-        <strong><%=review.user.first_name%> <%=review.user.last_name%></strong> gives <%= '⭐️' * review.rating %>, says <i>"<%= review.content %>"</i>
-      </p>
-      <% end unless @reviews.nil? %>
+
+    <div class="reviews-container">
+      <h2>Reviews:</h2>
+      <p>
+        <% @reviews.each do |review| %>
+          <strong><%=review.user.first_name%> <%=review.user.last_name%></strong> gives <%= '⭐️' * review.rating %>, says <i>"<%= review.content %>"</i>
+          </p>
+        <% end unless @reviews.nil? %>
+      </div>
   </div>
 </div>
