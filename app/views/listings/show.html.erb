@@ -4,10 +4,12 @@
 
 <div class="container">
   <% if current_user.nil? %>
-    <%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
+    <%= link_to "See all listings", listings_path , class: "btn btn-primary see-all-listings" %>
   <% elsif current_user == @listing.user && !current_user.nil?%>
-    <%= link_to "See all listings", listings_path , class: "btn btn-primary" %>
-    <%= link_to "Back to my listings", my_listings_path , class: "btn btn-primary" %>
+    <%= link_to "See all listings", listings_path , class: "btn btn-primary see-all-listings" %>
+    <%= link_to my_listings_path , class: "btn btn-primary see-all-listings" do %>
+    <p class="mb-0"><i class="fas fa-arrow-left"></i> Back to my listings</p>
+    <% end %>
   <% else %>
     <%= link_to "See all listings", listings_path , class: "btn btn-primary see-all-listings" %>
   <% end %>
@@ -16,7 +18,7 @@
     <div class="primary-image">
       <%= cl_image_tag @listing.photos.first.key %>
     </div>
-    <div class="listing-box">
+    <div class="listing-box-show-page">
         <div class="item-info">
           <h2><%= @listing.name %></h2>
           <h5><%= @listing.description%></h5>
@@ -102,15 +104,15 @@
         <% end %>
       </div>
     </div>
+  </div>
 
 
-    <div class="reviews-container">
-      <h2>Reviews:</h2>
-      <p>
-        <% @reviews.each do |review| %>
-          <strong><%=review.user.first_name%> <%=review.user.last_name%></strong> gives <%= '⭐️' * review.rating %>, says <i>"<%= review.content %>"</i>
-          </p>
-        <% end unless @reviews.nil? %>
-      </div>
+  <div class="reviews-container">
+    <h2>Reviews:</h2>
+    <p>
+      <% @reviews.each do |review| %>
+        <strong><%=review.user.first_name%> <%=review.user.last_name%></strong> gives <%= '⭐️' * review.rating %>, says <i>"<%= review.content %>"</i>
+        </p>
+      <% end unless @reviews.nil? %>
   </div>
 </div>

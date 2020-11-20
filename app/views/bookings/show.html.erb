@@ -1,10 +1,8 @@
 <% content_for :navbar do %>
       <%= render 'shared/navbar_white' %>
  <% end %>
-
 <div class="container">
   <h1>Booking Confirmation</h1>
-
   <div class="listing-container">
     <div class="primary-image">
     <%= cl_image_tag @booking.listing.photos.first.key %>
@@ -18,8 +16,6 @@
           <% if @booking.confirmed.nil? %>
             <p>Status: Pending</p>
           <% elsif @booking.confirmed == true %>
-            <p>Status: Confirmed</p>
-          <% else %>
             <p>Status: Declined</p>
           <% end %>
         <p><strong>Total price: £ <%= @total_price %></strong></p>
@@ -30,7 +26,7 @@
         </div>
         <div class="lender-info">
           <div class="lender-image">
-            <%= cl_image_tag @booking.listing.user.photo.key, crop: :fill, gravity: :face, class: "avatar"%>
+            <%= cl_image_tag @booking.listing.user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar" %>
           </div>
 
           <div class="lender-text">
@@ -38,12 +34,10 @@
             <p><i class="fas fa-graduation-cap"></i> <%= @booking.listing.user.university %></p>
             <p><i class="fas fa-at"></i> Email: <%= @booking.listing.user.email %></p>
           </div>
-
-
         </div>
       </div>
 
     </div>
   </div>
-</div>
 
+</div>
