@@ -8,7 +8,7 @@
 
 
 <div class="title-bookings pt-3">
-  <h2 class="mb-4">My new booking requests</h2>
+  <h2 class="mb-4">New booking requests</h2>
 </div>
 
     <div class="my-rentings-container">
@@ -62,7 +62,7 @@
 
 
 <div class="title-bookings pt-3">
-  <h2 class="mb-4">My confirmed booking requests</h2>
+  <h2 class="mb-4">Confirmed booking requests</h2>
 </div>
 
     <div class="my-rentings-container">
@@ -113,7 +113,7 @@
 
 
   <div class="title-bookings pt-3">
-    <h2 class="mr-3">My Current Listings</h2>
+    <h2 class="mr-3">Current Listings</h2>
   </div>
 
   <div class="my-listings-container">
@@ -136,7 +136,7 @@
             <div class="content">
               <h2 class="title"><%= listing.name %></h2>
               <p class="card-my-listing-info"><%= listing.description %></p>
-              <p class="card-my-listing-info"><%= listing.category %></p>
+              <p class="card-my-listing-info">Size: <%= listing.size %></p>
             </div>
           </div>
         <% end %>

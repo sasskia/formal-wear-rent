@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @review.listing = @listing
     @review.user = current_user
     @review.save!
-    redirect_to listings_path
+    redirect_to listing_path(@listing.id)
   end
 
   private
